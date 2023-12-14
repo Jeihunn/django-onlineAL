@@ -1,0 +1,11 @@
+{% load static %}
+
+<nav class="main-nav">
+    <ul class="menu active-underline">
+        <li {% if request.resolver_match.view_name == 'index_view' %}class="active"{% endif %}><a href="{% url "index_view" %}">Əsas Səhifə</a></li>
+        <li {% if request.resolver_match.view_name == 'about_us_view' %}class="active"{% endif %}><a href="{% url "about_us_view" %}">Haqqımızda</a></li>
+        <li ><a href="shop-banner-sidebar.html">Məhsullar</a></li>
+        <li ><a href="blog-listing.html">Blog</a></li>
+        <li {% if request.resolver_match.view_name == 'contact_us_view' %}class="active"{% endif %}><a href="{% url "contact_us_view" %}">Əlaqə</a></li>
+    </ul>
+</nav>

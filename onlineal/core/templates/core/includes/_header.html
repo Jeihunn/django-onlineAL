@@ -1,0 +1,22 @@
+{% load static %}
+
+<header class="header">
+
+    <!-- ===== Header Top ===== -->
+    {% include "core/includes/__header_top.html" %}
+    <!-- ===== END Header Top ===== -->
+
+    <!-- ===== Header Middle ===== -->
+    {% include "core/includes/__header_middle.html" %}
+    <!-- ===== END Header Middle ===== -->
+
+    <!-- ===== Header Bottom ===== -->
+    {% if request.resolver_match.view_name == 'index_view' %}
+        {% include "core/includes/__header_bottom_index.html" %}
+    {% else %}
+        {% include "core/includes/__header_bottom_other.html" %}
+    {% endif %}
+    <!-- ===== END Header Bottom ===== -->
+</header>
+
+
