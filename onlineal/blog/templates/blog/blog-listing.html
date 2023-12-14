@@ -2,183 +2,379 @@
 {% load static %}
 
 {% block head %}
-<title>Haqqımızda</title>
+    <title>Bloqlar</title>
 
-<script>
-    WebFontConfig = {
-        google: { families: ['Poppins:400,500,600,700,800'] }
-    };
-    ( function ( d ) {
-        var wf = d.createElement( 'script' ), s = d.scripts[0];
-        wf.src = '{% static "assets/js/webfont.js" %}';
-        wf.async = true;
-        s.parentNode.insertBefore( wf, s );
-    } )( document );
-</script>
-<link rel="preload" href="{% static "assets/vendor/fontawesome-free/webfonts/fa-regular-400.woff2" %}" as="font" type="font/woff2"
-    crossorigin="anonymous">
-<link rel="preload" href="{% static "assets/vendor/fontawesome-free/webfonts/fa-solid-900.woff2" %}" as="font" type="font/woff2"
-    crossorigin="anonymous">
-<link rel="preload" href="{% static "assets/vendor/fontawesome-free/webfonts/fa-brands-400.woff2" %}" as="font" type="font/woff2"
+    <script>
+        WebFontConfig = {
+            google: { families: ['Poppins:400,500,600,700'] }
+        };
+        ( function ( d ) {
+            var wf = d.createElement( 'script' ), s = d.scripts[0];
+            wf.src = '{% static "assets/js/webfont.js" %}';
+            wf.async = true;
+            s.parentNode.insertBefore( wf, s );
+        } )( document );
+    </script>
+
+    <link rel="preload" href="{% static "assets/vendor/fontawesome-free/webfonts/fa-regular-400.woff2" %}" as="font" type="font/woff2"
         crossorigin="anonymous">
-<link rel="preload" href="{% static "assets/fonts/wolmart87d5.woff?png09e" %}" as="font" type="font/woff" crossorigin="anonymous">
-<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css" 
-integrity="sha512-z3gLpd7yknf1YoNbCzqRKc4qyor8gaKU1qmn+CShxbuBusANI9QpRohGBreCFkKxLhei6S9CQXFEbbKuqLg0DA==" crossorigin="anonymous" referrerpolicy="no-referrer" />
-<link rel="stylesheet" type="text/css" href="{% static "assets/vendor/fontawesome-free/css/all.min.css" %}">
-<link rel="stylesheet" type="text/css" href="{% static "assets/vendor/animate/animate.min.css" %}">
-<link rel="stylesheet" href="{% static "assets/vendor/swiper/swiper-bundle.min.css" %}">
-<link rel="stylesheet" type="text/css" href="{% static "assets/vendor/magnific-popup/magnific-popup.min.css" %}">
-<link rel="stylesheet" type="text/css" href="{% static "assets/css/style.min.css" %}">
-<link rel="stylesheet" type="text/css" href="{% static "assets/css/main.min.css" %}">
+    <link rel="preload" href="{% static "assets/vendor/fontawesome-free/webfonts/fa-solid-900.woff2" %}" as="font" type="font/woff2"
+        crossorigin="anonymous">
+    <link rel="preload" href="{% static "assets/vendor/fontawesome-free/webfonts/fa-brands-400.woff2" %}" as="font" type="font/woff2"
+            crossorigin="anonymous">
+    <link rel="preload" href="{% static "assets/fonts/wolmart87d5.woff?png09e" %}" as="font" type="font/woff" crossorigin="anonymous">
+    <link rel="stylesheet" type="text/css" href="{% static "assets/vendor/fontawesome-free/css/all.min.css" %}">
+    <link rel="stylesheet" href="{% static "assets/vendor/swiper/swiper-bundle.min.css" %}">
+    <link rel="stylesheet" type="text/css" href="{% static "assets/vendor/magnific-popup/magnific-popup.min.css" %}">
+    <link rel="stylesheet" type="text/css" href="{% static "assets/css/style.min.css" %}">
+    <link rel="stylesheet" type="text/css" href="{% static "assets/css/main.min.css" %}">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css"
+    integrity="sha512-z3gLpd7yknf1YoNbCzqRKc4qyor8gaKU1qmn+CShxbuBusANI9QpRohGBreCFkKxLhei6S9CQXFEbbKuqLg0DA==" crossorigin="anonymous" referrerpolicy="no-referrer" />
 {% endblock head %}
 
 {% block body %}
-<body class="about-us">
+<body>
     <div class="page-wrapper">
 
-        <!-- ======= HEADER START ====== -->
+        <!-- ========== Header ========= -->
         {% include "core/includes/_header.html" %}
-        <!-- =====  End HEADER  ====== -->
+        <!-- ========== END Header ========= -->
 
-        <!-- ======= Main START ====== -->
+        <!-- ========== Main ========== -->
         <main class="main">
             <div class="page-header">
                 <div class="container">
-                    <h1 class="page-title mb-0">Haqqımızda</h1>
+                    <h1 class="page-title mb-0">Blog</h1>
                 </div>
             </div>
-            <nav class="breadcrumb-nav mb-10 pb-8">
+            <nav class="breadcrumb-nav mb-6">
                 <div class="container">
                     <ul class="breadcrumb">
-                        <li><a href="{% url "index_view" %}">Əsas Səhifə</a></li>
-                        <li>Haqqımızda</li>
+                        <li><a href="index.html">Əsas Səhifə</a></li>
+                        <li>Blog</li>
                     </ul>
                 </div>
-            </nav>           
-            <div class="page-content">
+            </nav>
+            <div class="page-content mb-10 pb-2">
                 <div class="container">
-                    <section class="customer-service mb-7">
-                        <div class="row align-items-center">
-                            <div class="col-md-6 pr-lg-8 mb-8">
-                                <h2 class="title text-left">Bizim haqqımızda</h2>
-                                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Dolores velit animi eaque accusamus beatae! Quia dolorum omnis repudiandae libero laboriosam dolore repellat excepturi voluptate nobis cumque neque quae ipsam magnam possimus odit aliquam similique beatae aliquid unde, placeat sapiente esse perferendis minima ullam.
-                                    Laboriosam excepturi expedita veniam culpa ratione doloremque accusamus ipsa eum. Consectetur voluptate eaque, quis id iure sapiente.Lorem ipsum dolor sit amet consectetur adipisicing elit. Quibusdam sapiente iusto nihil laboriosam natus animi adipisci debitis illo eaque,
-                                     recusandae quia exercitationem molestias voluptates similique quasi est, libero officia ipsa.Lorem ipsum dolor, sit amet consectetur adipisicing elit. Debitis nulla beatae voluptatum fuga sequi eius alias autem tempore in 
-                                    aut illo quidem, blanditiis nemo fugiat praesentium deleniti quod quae impedit?Lorem ipsum dolor sit amet consectetur adipisicing elit. 
-                                    Sunt nulla quasi eveniet perferendis ratione minus ipsa magnam aperiam esse cumque.</p>
-                            </div>
-                            <div class="col-md-6 mb-8">
-                                <figure class="br-lg">
-                                    <img src="{% static "assets/images/pages/about_us/2.jpg" %}" alt="Banner"
-                                        width="610" height="500" style="background-color: #CECECC;" />
+                    <div class="row gutter-lg">
+                        <div class="main-content">
+                            <article class="post post-list post-listing mb-md-10 mb-6 pb-2 overlay-zoom mb-4">
+                                <figure class="post-media br-sm">
+                                    <a href="post-single.html">
+                                        <img src="{% static "assets/images/blog/classic/1.jpg" %}" width="930"
+                                            height="500" alt="blog">
+                                    </a>
                                 </figure>
-                            </div>
+                                <div class="post-details">
+                                    <div class="post-cats text-primary">
+                                        <a href="#">Fashion</a>
+                                    </div>
+                                    <h4 class="post-title">
+                                        <a href="post-single.html">New found the men dress for summer. New found the men dress for summer. New found the men dress for summer. New found the men dress for summer</a>
+                                    </h4>
+                                    <div class="post-content">
+                                        <p>Sed pretium, ligula sollicitudin laoreet viverra, tortor libero sodales leo, 
+                                        eget blandit nunc tortor eu nibh. Suspendisse potenti.Sed egstas, ant at 
+                                        vulputate volutpat, uctus metus libero eu augue, vitae luctus. Lorem ipsum dolor sit amet, consectetur adipisicing elit. Perspiciatis atque neque, 
+                                        amet laborum expedita deserunt molestias, veritatis optio, porro dicta quas id quasi provident sit inventore minima ad tempore sint.</p>                    
+                                    </div>
+                                    <div class="post-meta">
+                                        <a href="#" class="post-date">03.05.2021</a>
+                                    </div>
+                                </div>
+                            </article>
+                            <article class="post post-list post-listing mb-md-10 mb-6 pb-2 overlay-zoom mb-4">
+                                <figure class="post-media br-sm">
+                                    <a href="post-single.html">
+                                        <img src="{% static "assets/images/blog/classic/2.jpg" %}" width="930"
+                                            height="500" alt="blog">
+                                    </a>
+                                </figure>
+                                <div class="post-details">
+                                    <div class="post-cats text-primary">
+                                        <a href="#">Others</a>,
+                                        <a href="#">Technology</a>
+                                    </div>
+                                    <h4 class="post-title">
+                                        <a href="post-single.html">Recognitory the needs is primary condition  for design</a>
+                                    </h4>
+                                    <div class="post-content">
+                                        <p>Sed pretium, ligula sollicitudin laoreet viverra, tortor libero sodales leo, 
+                                        eget blandit nunc tortor eu nibh. Suspendisse potenti.Sed egstas, ant at 
+                                        vulputate volutpat, uctus metus libero eu augue, vitae luctus…</p> 
+                                    </div>
+                                    <div class="post-meta">
+                                       <a href="#" class="post-date">03.05.2021</a>
+                                    </div>
+                                </div>
+                            </article>
+                            <article class="post post-list post-listing mb-md-10 mb-6 pb-2 overlay-zoom mb-4">
+                                <figure class="post-media br-sm">
+                                    <a href="post-single.html">
+                                        <img src="{% static "assets/images/blog/classic/3.jpg" %}" width="930"
+                                            height="500" alt="blog">
+                                    </a>
+                                </figure>
+                                <div class="post-details">
+                                    <div class="post-cats text-primary">
+                                        <a href="#">Clothes</a>
+                                    </div>
+                                    <h4 class="post-title">
+                                        <a href="post-single.html">New found the women’s shirt  for summer season</a>
+                                    </h4>
+                                    <div class="post-content">
+                                        <p>Sed pretium, ligula sollicitudin laoreet viverra, tortor libero sodales leo, 
+                                        eget blandit nunc tortor eu nibh. Suspendisse potenti.Sed egstas, ant at 
+                                        vulputate volutpat, uctus metus libero eu augue, vitae luctus…</p> 
+                                    </div>
+                                    <div class="post-meta">
+                                       <a href="#" class="post-date">03.05.2021</a>
+                                    </div>
+                                </div>
+                            </article>
+                            <article class="post post-list post-listing mb-md-10 mb-6 pb-2 overlay-zoom mb-4">
+                                <figure class="post-media br-sm">
+                                    <a href="post-single.html">
+                                        <img src="{% static "assets/images/blog/classic/4.jpg" %}" width="930"
+                                            height="500" alt="blog">
+                                    </a>
+                                </figure>
+                                <div class="post-details">
+                                    <div class="post-cats text-primary">
+                                        <a href="#">Lifestyle</a>
+                                    </div>
+                                    <h4 class="post-title">
+                                        <a href="post-single.html">We want to be different and fashion gives to me that outlet</a>
+                                    </h4>
+                                    <div class="post-content">
+                                        <p>Sed pretium, ligula sollicitudin laoreet viverra, tortor libero sodales leo, 
+                                        eget blandit nunc tortor eu nibh. Suspendisse potenti.Sed egstas, ant at 
+                                        vulputate volutpat, uctus metus libero eu augue, vitae luctus…</p> 
+                                    </div>
+                                    <div class="post-meta">
+                                       <a href="#" class="post-date">03.05.2021</a>
+                                    </div>
+                                </div>
+                            </article>
+                            <article class="post post-list post-listing mb-md-10 mb-6 pb-2 overlay-zoom mb-4">
+                                <figure class="post-media br-sm">
+                                    <a href="post-single.html">
+                                        <img src="{% static "assets/images/blog/classic/5.jpg" %}" width="930"
+                                            height="500" alt="blog">
+                                    </a>
+                                </figure>
+                                <div class="post-details">
+                                    <div class="post-cats text-primary">
+                                        <a href="#">Entertainment</a>,
+                                        <a href="#">Lifestyle</a>,
+                                        <a href="#">Others</a>
+                                    </div>
+                                    <h4 class="post-title">
+                                        <a href="post-single.html">Comes a cool blog post with Images</a>
+                                    </h4>
+                                    <div class="post-content">
+                                        <p>Sed pretium, ligula sollicitudin laoreet viverra, tortor libero sodales leo, 
+                                        eget blandit nunc tortor eu nibh. Suspendisse potenti.Sed egstas, ant at 
+                                        vulputate volutpat, uctus metus libero eu augue, vitae luctus…</p> 
+                                    </div>
+                                    <div class="post-meta">
+                                        <a href="#" class="post-date">03.05.2021</a>
+                                    </div>
+                                </div>
+                            </article>
+                            <article class="post post-list post-listing mb-md-10 mb-6 pb-2 overlay-zoom mb-2">
+                                <figure class="post-media br-sm">
+                                    <a href="post-single.html">
+                                        <img src="{% static "assets/images/blog/classic/6.jpg" %}" width="930"
+                                            height="500" alt="blog">
+                                    </a>
+                                </figure>
+                                <div class="post-details">
+                                    <div class="post-cats text-primary">
+                                        <a href="#">Fashion</a>,
+                                        <a href="#">Technology</a>
+                                    </div>
+                                    <h4 class="post-title">
+                                        <a href="post-single.html">Fusce lacinia arcuet nulla</a>
+                                    </h4>
+                                    <div class="post-content">
+                                        <p>Sed pretium, ligula sollicitudin laoreet viverra, tortor libero sodales leo, 
+                                        eget blandit nunc tortor eu nibh. Suspendisse potenti.Sed egstas, ant at 
+                                        vulputate volutpat, uctus metus libero eu augue, vitae luctus…</p> 
+                                    </div>
+                                    <div class="post-meta">
+                                         <a href="#" class="post-date">03.05.2021</a>
+                                    </div>
+                                </div>
+                            </article>
+                            <ul class="pagination justify-content-center">
+                                <li class="prev disabled">
+                                    <a href="#" aria-label="Previous" tabindex="-1" aria-disabled="true">
+                                        <i class="w-icon-long-arrow-left"></i>Əvvəlki
+                                    </a>
+                                </li>
+                                <li class="page-item active">
+                                    <a class="page-link" href="#">1</a>
+                                </li>
+                                <li class="page-item">
+                                    <a class="page-link" href="#">2</a>
+                                </li>
+                                <li class="next">
+                                    <a href="#" aria-label="Next">
+                                        Sonrakı<i class="w-icon-long-arrow-right"></i>
+                                    </a>
+                                </li>
+                            </ul>
                         </div>
-                    </section>
-                    <section class="count-section mb-10 pb-5">
-                        <div class="swiper-container swiper-theme" data-swiper-options="{
-                            'slidesPerView': 1,
-                            'breakpoints': {
-                                '768': {
-                                    'slidesPerView': 2
-                                },
-                                '992': {
-                                    'slidesPerView': 3
-                                }
-                            }
-                        }">
-                            <div class="swiper-wrapper row cols-lg-3 cols-md-2 cols-1">
-                                <div class="swiper-slide counter-wrap">
-                                    <div class="counter text-center">
-                                        <span class="count-to" data-to="15">0</span>
-                                        <span>+</span>
-                                        <h4 class="title title-center">Products For Sale</h4>
-                                        <p>Diam maecenas ultricies mi eget mauris<br>
-                                            Nibh tellus molestie nunc non</p>
+
+                        <aside class="sidebar right-sidebar blog-sidebar sidebar-fixed sticky-sidebar-wrapper">
+                            <div class="sidebar-overlay">
+                                <a href="#" class="sidebar-close">
+                                    <i class="close-icon"></i>
+                                </a>
+                            </div>
+                            <a href="#" class="sidebar-toggle">
+                                <i class="fas fa-chevron-left"></i>
+                            </a>
+                            <div class="sidebar-content">
+                                <div class="sticky-sidebar">
+                                    <div class="widget widget-search-form">
+                                        <div class="widget-body">
+                                            <form action="#" method="GET" class="input-wrapper input-wrapper-inline">
+                                                <input type="text" class="form-control"
+                                                    placeholder="Blogda axtar..." autocomplete="off" required>
+                                                <button class="btn btn-search"><i
+                                                        class="w-icon-search"></i></button>
+                                            </form>
+                                        </div>
                                     </div>
-                                </div>
-                                <div class="swiper-slide counter-wrap">
-                                    <div class="counter text-center">
-                                        <span class="count-to" data-to="25">0</span>
-                                        <span>+</span>
-                                        <h4 class="title title-center">Community Earnings</h4>
-                                        <p>Diam maecenas ultricies mi eget mauris<br>
-                                            Nibh tellus molestie nunc non</p>
+                                    <div class="widget widget-Categories">
+                                        <h3 class="widget-title bb-no mb-0">Categories</h3>
+                                        <ul class="widget-body filter-items search-ul">
+                                            <li><a href="blog-listing.html">Clothes</a></li>
+                                            <li><a href="blog-listing.html">Entertainment</a></li>
+                                            <li><a href="blog-listing.html">Fashion</a></li>
+                                            <li><a href="blog-listing.html">Lifestyle</a></li>
+                                            <li><a href="blog-listing.html">Others</a></li>
+                                            <li><a href="blog-listing.html">Shoes</a></li>
+                                            <li><a href="blog-listing.html">Technology</a></li>
+                                        </ul>
                                     </div>
-                                </div>
-                                <div class="swiper-slide counter-wrap">
-                                    <div class="counter text-center">
-                                        <span class="count-to" data-to="100">0</span>
-                                        <span>+</span>
-                                        <h4 class="title title-center">Growing Buyers</h4>
-                                        <p>Diam maecenas ultricies mi eget mauris<br>
-                                            Nibh tellus molestie nunc non</p>
+                                    <div class="widget widget-posts">
+                                        <h3 class="widget-title bb-no">Məşhur bloglar</h3>
+                                        <div class="widget-body">
+                                            <div class="swiper">
+                                                <div class="swiper-container swiper-theme nav-top" data-swiper-options="{
+                                                    'spaceBetween': 20,
+                                                    'slidesPerView': 1
+                                                }">
+                                                    <div class="swiper-wrapper row cols-1">
+                                                        <div class="swiper-slide widget-col popular">
+                                                            <div class="post-widget mb-4">
+                                                                <figure class="post-media br-sm">
+                                                                    <img src="{% static "assets/images/blog/sidebar/1.jpg" %}" alt="150" height="150" />
+                                                                </figure>
+                                                                <div class="post-details ">
+                                                                    <div class="post-meta">
+                                                                        <a href="#" class="post-date">March 1, 2021</a>
+                                                                    </div>
+                                                                    <h4 class="post-title">
+                                                                        <a href="post-single.html">Fashion tells about who you are from external point</a>
+                                                                    </h4>
+                                                                </div>
+                                                            </div>
+                                                            <div class="post-widget mb-4">
+                                                                <figure class="post-media br-sm">
+                                                                    <img src="{% static "assets/images/blog/sidebar/2.jpg" %}" alt="150" height="150" />
+                                                                </figure>
+                                                                <div class="post-details">
+                                                                    <div class="post-meta">
+                                                                        <a href="#" class="post-date">March 5, 2021</a>
+                                                                    </div>
+                                                                    <h4 class="post-title">
+                                                                        <a href="post-single.html">New found the men dress for summer</a>
+                                                                    </h4>
+                                                                </div>
+                                                            </div>
+                                                            <div class="post-widget mb-2">
+                                                                <figure class="post-media br-sm">
+                                                                    <img src="{% static "assets/images/blog/sidebar/3.jpg" %}" alt="150" height="150" />
+                                                                </figure>
+                                                                <div class="post-details">
+                                                                    <div class="post-meta">
+                                                                        <a href="#" class="post-date">March 1, 2021</a>
+                                                                    </div>
+                                                                    <h4 class="post-title">
+                                                                        <a href="post-single.html">Cras ornare tristique elit</a>
+                                                                    </h4>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                        <div class="swiper-slide widget-col">
+                                                            <div class="post-widget mb-4">
+                                                                <figure class="post-media br-sm">
+                                                                    <img src="{% static "assets/images/blog/sidebar/4.jpg" %}" alt="150" height="150" />
+                                                                </figure>
+                                                                <div class="post-details">
+                                                                    <div class="post-meta">
+                                                                        <a href="#" class="post-date">March 1, 2021</a>
+                                                                    </div>
+                                                                    <h4 class="post-title">
+                                                                        <a href="post-single.html">Vivamus vestibulum ntulla nec ante</a>
+                                                                    </h4>
+                                                                </div>
+                                                            </div>
+                                                            <div class="post-widget mb-4">
+                                                                <figure class="post-media br-sm">
+                                                                    <img src="{% static "assets/images/blog/sidebar/5.jpg" %}" alt="150" height="150" />
+                                                                </figure>
+                                                                <div class="post-details">
+                                                                    <div class="post-meta">
+                                                                        <a href="#" class="post-date">March 5, 2021</a>
+                                                                    </div>
+                                                                    <h4 class="post-title">
+                                                                        <a href="post-single.html">Fusce lacinia arcuet nulla</a>
+                                                                    </h4>
+                                                                </div>
+                                                            </div>
+                                                            <div class="post-widget mb-2">
+                                                                <figure class="post-media br-sm">
+                                                                    <img src="{% static "assets/images/blog/sidebar/6.jpg" %}" alt="150" height="150" />
+                                                                </figure>
+                                                                <div class="post-details">
+                                                                    <div class="post-meta">
+                                                                        <a href="#" class="post-date">March 1, 2021</a>
+                                                                    </div>
+                                                                    <h4 class="post-title">
+                                                                        <a href="post-single.html">Comes a cool blog post with Images</a>
+                                                                    </h4>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                    <div class="swiper-button-next"></div>
+                                                    <div class="swiper-button-prev"></div>
+                                                </div>
+                                            </div>
+                                        </div>
                                     </div>
                                 </div>
                             </div>
-                            <div class="swiper-pagination"></div>
-                        </div>
-                    </section>
+                        </aside>
+                    </div>
                 </div>
-                <section class="boost-section pt-10 pb-10">
-                    <div class="row align-items-center">
-                        <div class="col-md-10 pr-lg-8 mb-8">
-                        <h3>Ən çox verilən suallar</h3>
-                        <div class="accordion accordion-simple accordion-plus">
-                            <div class="card border-no">
-                                <div class="card-header">
-                                    <a href="#collapse3-1" class="collapse">Customer Service</a>
-                                </div>
-                                <div class="card-body expanded" id="collapse3-1">
-                                    <p class="mb-0">
-                                        Lorem ipsum dolor sit eiusamet, consectetur adipiscing elit,
-                                        sed do eius mod tempor incididunt ut labore
-                                        et dolore magna aliqua. Venenatis tell
-                                        us in metus vulputate eu scelerisque felis. Vel pretium vulp.
-                                    </p>
-                                </div>
-                            </div>
-                            <div class="card">
-                                <div class="card-header">
-                                    <a href="#collapse3-2" class="expand">Online Consultation</a>
-                                </div>
-                                <div class="card-body collapsed" id="collapse3-2">
-                                    <p class="mb-0">
-                                        Lorem ipsum dolor sit eiusamet, consectetur adipiscing elit,
-                                        sed do eius mod tempor incididunt ut labore
-                                        et dolore magna aliqua. Venenatis tell
-                                        us in metus vulputate eu scelerisque felis. Vel pretium vulp.
-                                    </p>
-                                </div>
-                            </div>
-                            <div class="card">
-                                <div class="card-header">
-                                    <a href="#collapse3-3" class="expand">Sales Management</a>
-                                </div>
-                                <div class="card-body collapsed" id="collapse3-3">
-                                    <p class="mb-0">
-                                        Lorem ipsum dolor sit eiusamet, consectetur adipiscing elit,
-                                        sed do eius mod tempor incididunt ut labore
-                                        et dolore magna aliqua. Venenatis tell
-                                        us in metus vulputate eu scelerisque felis. Vel pretium vulp.
-                                    </p>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    </div>
-                </section>
             </div>
         </main>
-        <!-- ======= END Main ====== -->
+        <!-- ========== END Main ========== -->
 
-        <!-- ========== FOOTER ========= -->
+
+        <!-- ========== Footer =========== -->
         {% include "core/includes/_footer.html" %}
-        <!-- ========== END FOOTER ========= -->
+        <!-- ========== END Footer =========== -->
 
     </div>
     <a id="scroll-top" class="scroll-top" href="#top" title="Top" role="button"> <i class="w-icon-angle-up"></i> <svg version="1.1" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 70 70"> <circle id="progress-indicator" fill="transparent" stroke="#000000" stroke-miterlimit="10" cx="35" cy="35" r="34" style="stroke-dasharray: 16.4198, 400;"></circle> </svg> </a>
-
     <div class="mobile-menu-wrapper">
         <div class="mobile-menu-overlay"></div>
         <a href="#" class="mobile-menu-close"><i class="close-icon"></i></a>
@@ -203,7 +399,7 @@ integrity="sha512-z3gLpd7yknf1YoNbCzqRKc4qyor8gaKU1qmn+CShxbuBusANI9QpRohGBreCFk
             <div class="tab-content">
                 <div class="tab-pane active" id="main-menu">
                     <ul class="mobile-menu">
-                        <li><a href="{% url "index_view" %}">Home</a></li>
+                        <li><a href="index.html">Home</a></li>
                         <li>
                             <a href="shop-banner-sidebar.html">Shop</a>
                             <ul>
@@ -632,10 +828,10 @@ integrity="sha512-z3gLpd7yknf1YoNbCzqRKc4qyor8gaKU1qmn+CShxbuBusANI9QpRohGBreCFk
         </div>
     </div>
     <script data-cfasync="false" src="../../cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script><script src="{% static "assets/vendor/jquery/jquery.min.js" %}"></script>
-    <script src="{% static "assets/vendor/jquery.count-to/jquery.count-to.min.js" %}"></script>
     <script src="{% static "assets/vendor/swiper/swiper-bundle.min.js" %}"></script>
+    <script src="{% static "assets/vendor/sticky/sticky.js" %}"></script>
     <script src="{% static "assets/vendor/magnific-popup/jquery.magnific-popup.min.js" %}"></script>
     <script src="{% static "assets/js/main.min.js" %}"></script>
-    <script>(function(){var js = "window['__CF$cv$params']={r:'8298e8380aeebb74',t:'MTcwMDU2OTQ0MC4xMTkwMDA='};_cpo=document.createElement('script');_cpo.nonce='',_cpo.src='../../cdn-cgi/challenge-platform/h/g/scripts/jsd/9914b343/main.js',document.getElementsByTagName('head')[0].appendChild(_cpo);";var _0xh = document.createElement('iframe');_0xh.height = 1;_0xh.width = 1;_0xh.style.position = 'absolute';_0xh.style.top = 0;_0xh.style.left = 0;_0xh.style.border = 'none';_0xh.style.visibility = 'hidden';document.body.appendChild(_0xh);function handler() {var _0xi = _0xh.contentDocument || _0xh.contentWindow.document;if (_0xi) {var _0xj = _0xi.createElement('script');_0xj.innerHTML = js;_0xi.getElementsByTagName('head')[0].appendChild(_0xj);}}if (document.readyState !== 'loading') {handler();} else if (window.addEventListener) {document.addEventListener('DOMContentLoaded', handler);} else {var prev = document.onreadystatechange || function () {};document.onreadystatechange = function (e) {prev(e);if (document.readyState !== 'loading') {document.onreadystatechange = prev;handler();}};}})();</script>
+    <script>(function(){var js = "window['__CF$cv$params']={r:'8298e82789a5bb74',t:'MTcwMDU2OTQzNy40NzUwMDA='};_cpo=document.createElement('script');_cpo.nonce='',_cpo.src='../../cdn-cgi/challenge-platform/h/g/scripts/jsd/9914b343/main.js',document.getElementsByTagName('head')[0].appendChild(_cpo);";var _0xh = document.createElement('iframe');_0xh.height = 1;_0xh.width = 1;_0xh.style.position = 'absolute';_0xh.style.top = 0;_0xh.style.left = 0;_0xh.style.border = 'none';_0xh.style.visibility = 'hidden';document.body.appendChild(_0xh);function handler() {var _0xi = _0xh.contentDocument || _0xh.contentWindow.document;if (_0xi) {var _0xj = _0xi.createElement('script');_0xj.innerHTML = js;_0xi.getElementsByTagName('head')[0].appendChild(_0xj);}}if (document.readyState !== 'loading') {handler();} else if (window.addEventListener) {document.addEventListener('DOMContentLoaded', handler);} else {var prev = document.onreadystatechange || function () {};document.onreadystatechange = function (e) {prev(e);if (document.readyState !== 'loading') {document.onreadystatechange = prev;handler();}};}})();</script>
 </body>
 {% endblock body %}
