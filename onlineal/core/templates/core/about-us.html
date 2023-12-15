@@ -125,45 +125,21 @@ integrity="sha512-z3gLpd7yknf1YoNbCzqRKc4qyor8gaKU1qmn+CShxbuBusANI9QpRohGBreCFk
                         <div class="col-md-10 pr-lg-8 mb-8">
                         <h3>Ən çox verilən suallar</h3>
                         <div class="accordion accordion-simple accordion-plus">
+
+                            {% for faq in faqs %}
                             <div class="card border-no">
                                 <div class="card-header">
-                                    <a href="#collapse3-1" class="collapse">Customer Service</a>
+                                    <a href="#faq-{{ faq.id }}" class="collapse">{{ faq.question }}</a>
                                 </div>
-                                <div class="card-body expanded" id="collapse3-1">
+                                <div class="card-body {% if forloop.first %}expanded {% else %}collapsed{% endif %}" id="faq-{{ faq.id }}">
                                     <p class="mb-0">
-                                        Lorem ipsum dolor sit eiusamet, consectetur adipiscing elit,
-                                        sed do eius mod tempor incididunt ut labore
-                                        et dolore magna aliqua. Venenatis tell
-                                        us in metus vulputate eu scelerisque felis. Vel pretium vulp.
+                                        {{ faq.answer|safe }}
                                     </p>
                                 </div>
                             </div>
-                            <div class="card">
-                                <div class="card-header">
-                                    <a href="#collapse3-2" class="expand">Online Consultation</a>
-                                </div>
-                                <div class="card-body collapsed" id="collapse3-2">
-                                    <p class="mb-0">
-                                        Lorem ipsum dolor sit eiusamet, consectetur adipiscing elit,
-                                        sed do eius mod tempor incididunt ut labore
-                                        et dolore magna aliqua. Venenatis tell
-                                        us in metus vulputate eu scelerisque felis. Vel pretium vulp.
-                                    </p>
-                                </div>
-                            </div>
-                            <div class="card">
-                                <div class="card-header">
-                                    <a href="#collapse3-3" class="expand">Sales Management</a>
-                                </div>
-                                <div class="card-body collapsed" id="collapse3-3">
-                                    <p class="mb-0">
-                                        Lorem ipsum dolor sit eiusamet, consectetur adipiscing elit,
-                                        sed do eius mod tempor incididunt ut labore
-                                        et dolore magna aliqua. Venenatis tell
-                                        us in metus vulputate eu scelerisque felis. Vel pretium vulp.
-                                    </p>
-                                </div>
-                            </div>
+                            {% endfor %}
+
+
                         </div>
                     </div>
                     </div>
