@@ -10,5 +10,6 @@ def index_view(request):
 def contact_us_view(request):
     return render(request, 'core/contact-us.html')
 
+
 def about_us_view(request):
     return render(request, 'core/about-us.html')
