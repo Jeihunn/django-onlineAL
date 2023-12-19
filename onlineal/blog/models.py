@@ -5,7 +5,8 @@ from django.core.exceptions import ValidationError
 from ckeditor.fields import RichTextField
 
 from services.abstract_models import TimeStampedModel
-from services.utils import create_unique_slug, EmptySlugError, SlugTooLongError
+from services.utils import create_unique_slug
+
 
 # Create your models here.
 
@@ -26,11 +27,18 @@ class BlogCategory(TimeStampedModel):
         default=True
     )
 
-    def save(self, *args, **kwargs):
-        # Automatically fill slug field
+    def clean(self):
+        # Generate a unique slug if it's not set
         if not self.slug:
-            self.slug = create_unique_slug(self, "title")
+            try:
+                self.slug = create_unique_slug(
+                    self, "title", empty_error_msg="Slug dəyəri boş ola bilməz. Başlığı düzəldin."
+                )
+            except ValueError as e:
+                raise ValidationError(str(e))
 
+    def save(self, *args, **kwargs):
+        self.full_clean()
         super().save(*args, **kwargs)
 
     def __str__(self):
@@ -43,7 +51,7 @@ class BlogCategory(TimeStampedModel):
 
 class BlogPost(TimeStampedModel):
     title = models.CharField(
-        max_length=20,
+        max_length=255,
         verbose_name=_("Başlıq"),
     )
     content = RichTextField(
@@ -53,7 +61,6 @@ class BlogPost(TimeStampedModel):
         verbose_name=_("Slug"),
         unique=True,
         editable=False,
-        max_length=10
     )
     is_active = models.BooleanField(
         verbose_name=_("Aktiv"),
@@ -61,13 +68,14 @@ class BlogPost(TimeStampedModel):
     )
 
     def clean(self):
+        # Generate a unique slug if it's not set
         if not self.slug:
             try:
-                self.slug = create_unique_slug(self, "title", max_length=self._meta.get_field('slug').max_length)
-            except EmptySlugError:
-                raise ValidationError(_("Slug yaradılmadı. Başlıq məlumatını düzgün daxil edin."))
-            except SlugTooLongError:
-                raise ValidationError(_(f"Slug uzunluğu {self._meta.get_field('slug').max_length} simvoldan çox olmamalıdır."))
+                self.slug = create_unique_slug(
+                    self, "title", empty_error_msg="Slug dəyəri boş ola bilməz. Başlığı düzəldin."
+                )
+            except ValueError as e:
+                raise ValidationError(str(e))
 
     def save(self, *args, **kwargs):
         self.full_clean()

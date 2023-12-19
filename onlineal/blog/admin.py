@@ -11,6 +11,7 @@ class BlogPostAdmin(admin.ModelAdmin):
     list_display = ("title", "slug", "is_active", "created_at")
     list_filter = ("is_active",)
     search_fields = ("title",)
+    readonly_fields = ("slug",)
 
 
 @admin.register(BlogCategory)
