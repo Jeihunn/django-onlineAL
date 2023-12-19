@@ -16,15 +16,15 @@ class BlogCategory(TimeStampedModel):
         verbose_name=_("Başlıq"),
         max_length=255,
     )
+    is_active = models.BooleanField(
+        verbose_name=_("Aktiv"),
+        default=True
+    )
     slug = models.SlugField(
         verbose_name=_("Slug"),
         max_length=255,
         unique=True,
         editable=False
-    )
-    is_active = models.BooleanField(
-        verbose_name=_("Aktiv"),
-        default=True
     )
 
     def clean(self):
@@ -42,7 +42,10 @@ class BlogCategory(TimeStampedModel):
         super().save(*args, **kwargs)
 
     def __str__(self):
-        return self.title
+        if len(self.title) > 100:
+            return f"{self.title[:100]}..."
+        else:
+            return self.title
 
     class Meta:
         verbose_name = _("Kategoriya")
@@ -54,17 +57,37 @@ class BlogPost(TimeStampedModel):
         max_length=255,
         verbose_name=_("Başlıq"),
     )
+    category = models.ForeignKey(
+        to="blog.BlogCategory",
+        on_delete=models.SET_NULL,
+        null=True,
+        verbose_name=_("Kateqoriya"),
+    )
     content = RichTextField(
         verbose_name=_("Məzmun")
+    )
+    cover_image = models.ImageField(
+        verbose_name=_("Cover şəkili"),
+        upload_to="blog/cover_images/",
+    )
+    detail_image = models.ImageField(
+        verbose_name=_("Məzmun şəkili"),
+        upload_to="blog/detail_images/",
+        null=True,
+        blank=True
+    )
+    is_active = models.BooleanField(
+        verbose_name=_("Aktiv"),
+        default=True
+    )
+    view_count = models.PositiveIntegerField(
+        verbose_name=_("Baxış sayı"),
+        default=0
     )
     slug = models.SlugField(
         verbose_name=_("Slug"),
         unique=True,
         editable=False,
-    )
-    is_active = models.BooleanField(
-        verbose_name=_("Aktiv"),
-        default=True
     )
 
     def clean(self):

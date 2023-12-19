@@ -59,155 +59,35 @@
                 <div class="container">
                     <div class="row gutter-lg">
                         <div class="main-content">
-                            <article class="post post-list post-listing mb-md-10 mb-6 pb-2 overlay-zoom mb-4">
-                                <figure class="post-media br-sm">
-                                    <a href="{% url "blog_detail_view" %}">
-                                        <img src="{% static "assets/images/blog/classic/1.jpg" %}" width="930"
-                                            height="500" alt="blog">
-                                    </a>
-                                </figure>
-                                <div class="post-details">
-                                    <div class="post-cats text-primary">
-                                        <a href="#">Fashion</a>
+                            
+                            {% for blog_post in blog_posts %}
+                                <!-- BlogPost List -->
+                                <article class="post post-list post-listing mb-md-10 mb-6 pb-2 overlay-zoom mb-4">
+                                    <figure class="post-media br-sm">
+                                        <a href="{% url "blog_detail_view"  %}">
+                                            <img src="{% static "assets/images/blog/classic/1.jpg" %}" width="930"
+                                                height="500" alt="blog">
+                                        </a>
+                                    </figure>
+                                    <div class="post-details">
+                                        <div class="post-cats text-primary">
+                                            <a href="#">{{ blog_post.category.title }}</a>
+                                        </div>
+                                        <h4 class="post-title">
+                                            <a href="{% url "blog_detail_view" %}">{{ blog_post.title }}</a>
+                                        </h4>
+                                        <div class="post-content">
+                                            <p>{{ blog_post.content|striptags|truncatechars:100 }}</p>                   
+                                        </div>
+                                        <div class="post-meta">
+                                            <a href="#" class="post-date">{{ blog_post.created_at|date:"d.m.Y H:i" }}</a>
+                                        </div>
                                     </div>
-                                    <h4 class="post-title">
-                                        <a href="{% url "blog_detail_view" %}">New found the men dress for summer. New found the men dress for summer. New found the men dress for summer. New found the men dress for summer</a>
-                                    </h4>
-                                    <div class="post-content">
-                                        <p>Sed pretium, ligula sollicitudin laoreet viverra, tortor libero sodales leo, 
-                                        eget blandit nunc tortor eu nibh. Suspendisse potenti.Sed egstas, ant at 
-                                        vulputate volutpat, uctus metus libero eu augue, vitae luctus. Lorem ipsum dolor sit amet, consectetur adipisicing elit. Perspiciatis atque neque, 
-                                        amet laborum expedita deserunt molestias, veritatis optio, porro dicta quas id quasi provident sit inventore minima ad tempore sint.</p>                    
-                                    </div>
-                                    <div class="post-meta">
-                                        <a href="#" class="post-date">03.05.2021</a>
-                                    </div>
-                                </div>
-                            </article>
-                            <article class="post post-list post-listing mb-md-10 mb-6 pb-2 overlay-zoom mb-4">
-                                <figure class="post-media br-sm">
-                                    <a href="{% url "blog_detail_view" %}">
-                                        <img src="{% static "assets/images/blog/classic/2.jpg" %}" width="930"
-                                            height="500" alt="blog">
-                                    </a>
-                                </figure>
-                                <div class="post-details">
-                                    <div class="post-cats text-primary">
-                                        <a href="#">Others</a>,
-                                        <a href="#">Technology</a>
-                                    </div>
-                                    <h4 class="post-title">
-                                        <a href="{% url "blog_detail_view" %}">Recognitory the needs is primary condition  for design</a>
-                                    </h4>
-                                    <div class="post-content">
-                                        <p>Sed pretium, ligula sollicitudin laoreet viverra, tortor libero sodales leo, 
-                                        eget blandit nunc tortor eu nibh. Suspendisse potenti.Sed egstas, ant at 
-                                        vulputate volutpat, uctus metus libero eu augue, vitae luctus…</p> 
-                                    </div>
-                                    <div class="post-meta">
-                                       <a href="#" class="post-date">03.05.2021</a>
-                                    </div>
-                                </div>
-                            </article>
-                            <article class="post post-list post-listing mb-md-10 mb-6 pb-2 overlay-zoom mb-4">
-                                <figure class="post-media br-sm">
-                                    <a href="{% url "blog_detail_view" %}">
-                                        <img src="{% static "assets/images/blog/classic/3.jpg" %}" width="930"
-                                            height="500" alt="blog">
-                                    </a>
-                                </figure>
-                                <div class="post-details">
-                                    <div class="post-cats text-primary">
-                                        <a href="#">Clothes</a>
-                                    </div>
-                                    <h4 class="post-title">
-                                        <a href="{% url "blog_detail_view" %}">New found the women’s shirt  for summer season</a>
-                                    </h4>
-                                    <div class="post-content">
-                                        <p>Sed pretium, ligula sollicitudin laoreet viverra, tortor libero sodales leo, 
-                                        eget blandit nunc tortor eu nibh. Suspendisse potenti.Sed egstas, ant at 
-                                        vulputate volutpat, uctus metus libero eu augue, vitae luctus…</p> 
-                                    </div>
-                                    <div class="post-meta">
-                                       <a href="#" class="post-date">03.05.2021</a>
-                                    </div>
-                                </div>
-                            </article>
-                            <article class="post post-list post-listing mb-md-10 mb-6 pb-2 overlay-zoom mb-4">
-                                <figure class="post-media br-sm">
-                                    <a href="{% url "blog_detail_view" %}">
-                                        <img src="{% static "assets/images/blog/classic/4.jpg" %}" width="930"
-                                            height="500" alt="blog">
-                                    </a>
-                                </figure>
-                                <div class="post-details">
-                                    <div class="post-cats text-primary">
-                                        <a href="#">Lifestyle</a>
-                                    </div>
-                                    <h4 class="post-title">
-                                        <a href="{% url "blog_detail_view" %}">We want to be different and fashion gives to me that outlet</a>
-                                    </h4>
-                                    <div class="post-content">
-                                        <p>Sed pretium, ligula sollicitudin laoreet viverra, tortor libero sodales leo, 
-                                        eget blandit nunc tortor eu nibh. Suspendisse potenti.Sed egstas, ant at 
-                                        vulputate volutpat, uctus metus libero eu augue, vitae luctus…</p> 
-                                    </div>
-                                    <div class="post-meta">
-                                       <a href="#" class="post-date">03.05.2021</a>
-                                    </div>
-                                </div>
-                            </article>
-                            <article class="post post-list post-listing mb-md-10 mb-6 pb-2 overlay-zoom mb-4">
-                                <figure class="post-media br-sm">
-                                    <a href="{% url "blog_detail_view" %}">
-                                        <img src="{% static "assets/images/blog/classic/5.jpg" %}" width="930"
-                                            height="500" alt="blog">
-                                    </a>
-                                </figure>
-                                <div class="post-details">
-                                    <div class="post-cats text-primary">
-                                        <a href="#">Entertainment</a>,
-                                        <a href="#">Lifestyle</a>,
-                                        <a href="#">Others</a>
-                                    </div>
-                                    <h4 class="post-title">
-                                        <a href="{% url "blog_detail_view" %}">Comes a cool blog post with Images</a>
-                                    </h4>
-                                    <div class="post-content">
-                                        <p>Sed pretium, ligula sollicitudin laoreet viverra, tortor libero sodales leo, 
-                                        eget blandit nunc tortor eu nibh. Suspendisse potenti.Sed egstas, ant at 
-                                        vulputate volutpat, uctus metus libero eu augue, vitae luctus…</p> 
-                                    </div>
-                                    <div class="post-meta">
-                                        <a href="#" class="post-date">03.05.2021</a>
-                                    </div>
-                                </div>
-                            </article>
-                            <article class="post post-list post-listing mb-md-10 mb-6 pb-2 overlay-zoom mb-2">
-                                <figure class="post-media br-sm">
-                                    <a href="{% url "blog_detail_view" %}">
-                                        <img src="{% static "assets/images/blog/classic/6.jpg" %}" width="930"
-                                            height="500" alt="blog">
-                                    </a>
-                                </figure>
-                                <div class="post-details">
-                                    <div class="post-cats text-primary">
-                                        <a href="#">Fashion</a>,
-                                        <a href="#">Technology</a>
-                                    </div>
-                                    <h4 class="post-title">
-                                        <a href="{% url "blog_detail_view" %}">Fusce lacinia arcuet nulla</a>
-                                    </h4>
-                                    <div class="post-content">
-                                        <p>Sed pretium, ligula sollicitudin laoreet viverra, tortor libero sodales leo, 
-                                        eget blandit nunc tortor eu nibh. Suspendisse potenti.Sed egstas, ant at 
-                                        vulputate volutpat, uctus metus libero eu augue, vitae luctus…</p> 
-                                    </div>
-                                    <div class="post-meta">
-                                         <a href="#" class="post-date">03.05.2021</a>
-                                    </div>
-                                </div>
-                            </article>
+                                </article>
+                            {% endfor %}
+
+
+                            <!-- Pagination -->
                             <ul class="pagination justify-content-center">
                                 <li class="prev disabled">
                                     <a href="#" aria-label="Previous" tabindex="-1" aria-disabled="true">
