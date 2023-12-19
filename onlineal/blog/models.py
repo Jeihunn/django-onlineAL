@@ -22,7 +22,6 @@ class BlogCategory(TimeStampedModel):
     )
     slug = models.SlugField(
         verbose_name=_("Slug"),
-        max_length=255,
         unique=True,
         editable=False
     )

@@ -1,0 +1,55 @@
+{% load tags %}
+
+{% get_popular_blog_posts as popular_blog_posts %}
+<div class="widget widget-posts">
+    <h3 class="widget-title bb-no">Məşhur bloglar</h3>
+    <div class="widget-body">
+        <div class="swiper">
+            <div class="swiper-container swiper-theme nav-top" data-swiper-options="{
+                'spaceBetween': 20,
+                'slidesPerView': 1
+            }">
+                <div class="swiper-wrapper row cols-1">
+                    <div class="swiper-slide widget-col popular">
+                        {% for popular_blog_post in popular_blog_posts|slice:":3" %}
+                        <div class="post-widget mb-4">
+                            <figure class="post-media br-sm">
+                                <img src="{{ popular_blog_post.cover_image.url }}" alt="150" height="150" />
+                            </figure>
+                            <div class="post-details ">
+                                <div class="post-meta">
+                                    <a href="#" class="post-date">{{ popular_blog_post.created_at|date:"d.m.Y" }}</a>
+                                </div>
+                                <h4 class="post-title">
+                                    <a href="{% url "blog_detail_view" popular_blog_post.slug %}">{{ popular_blog_post.title }}</a>
+                                </h4>
+                            </div>
+                        </div>
+                        {% endfor %}
+                    </div>
+                    {% if popular_blog_posts.count > 3 %}
+                    <div class="swiper-slide widget-col">
+                        {% for popular_blog_post in popular_blog_posts|slice:"3:" %}
+                        <div class="post-widget mb-4">
+                            <figure class="post-media br-sm">
+                                <img src="{{ popular_blog_post.cover_image.url }}" alt="150" height="150" />
+                            </figure>
+                            <div class="post-details">
+                                <div class="post-meta">
+                                    <a href="#" class="post-date">{{ popular_blog_post.created_at|date:"d.m.Y" }}</a>
+                                </div>
+                                <h4 class="post-title">
+                                    <a href="{% url "blog_detail_view" popular_blog_post.slug %}">{{ popular_blog_post.title }}</a>
+                                </h4>
+                            </div>
+                        </div>
+                        {% endfor %}
+                    </div>
+                    {% endif %}
+                </div>
+                <div class="swiper-button-next"></div>
+                <div class="swiper-button-prev"></div>
+            </div>
+        </div>
+    </div>
+</div>

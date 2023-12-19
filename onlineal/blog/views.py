@@ -15,5 +15,5 @@ def blog_list_view(request):
     return render(request, 'blog/blog-listing.html', context)
 
 
-def blog_detail_view(request):
+def blog_detail_view(request, slug):
     return render(request, 'blog/post-single.html')

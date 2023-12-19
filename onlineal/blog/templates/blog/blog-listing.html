@@ -64,8 +64,8 @@
                                 <!-- BlogPost List -->
                                 <article class="post post-list post-listing mb-md-10 mb-6 pb-2 overlay-zoom mb-4">
                                     <figure class="post-media br-sm">
-                                        <a href="{% url "blog_detail_view"  %}">
-                                            <img src="{% static "assets/images/blog/classic/1.jpg" %}" width="930"
+                                        <a href="{% url "blog_detail_view" blog_post.slug %}">
+                                            <img src="{{ blog_post.cover_image.url }}" width="930"
                                                 height="500" alt="blog">
                                         </a>
                                     </figure>
@@ -74,7 +74,7 @@
                                             <a href="#">{{ blog_post.category.title }}</a>
                                         </div>
                                         <h4 class="post-title">
-                                            <a href="{% url "blog_detail_view" %}">{{ blog_post.title }}</a>
+                                            <a href="{% url "blog_detail_view" blog_post.slug %}">{{ blog_post.title }}</a>
                                         </h4>
                                         <div class="post-content">
                                             <p>{{ blog_post.content|striptags|truncatechars:100 }}</p>                   
@@ -119,126 +119,14 @@
                             </a>
                             <div class="sidebar-content">
                                 <div class="sticky-sidebar">
-                                    <div class="widget widget-search-form">
-                                        <div class="widget-body">
-                                            <form action="#" method="GET" class="input-wrapper input-wrapper-inline">
-                                                <input type="text" class="form-control"
-                                                    placeholder="Blogda axtar..." autocomplete="off" required>
-                                                <button class="btn btn-search"><i
-                                                        class="w-icon-search"></i></button>
-                                            </form>
-                                        </div>
-                                    </div>
-                                    <div class="widget widget-Categories">
-                                        <h3 class="widget-title bb-no mb-0">Categories</h3>
-                                        <ul class="widget-body filter-items search-ul">
-                                            <li><a href="blog-listing.html">Clothes</a></li>
-                                            <li><a href="blog-listing.html">Entertainment</a></li>
-                                            <li><a href="blog-listing.html">Fashion</a></li>
-                                            <li><a href="blog-listing.html">Lifestyle</a></li>
-                                            <li><a href="blog-listing.html">Others</a></li>
-                                            <li><a href="blog-listing.html">Shoes</a></li>
-                                            <li><a href="blog-listing.html">Technology</a></li>
-                                        </ul>
-                                    </div>
-                                    <div class="widget widget-posts">
-                                        <h3 class="widget-title bb-no">Məşhur bloglar</h3>
-                                        <div class="widget-body">
-                                            <div class="swiper">
-                                                <div class="swiper-container swiper-theme nav-top" data-swiper-options="{
-                                                    'spaceBetween': 20,
-                                                    'slidesPerView': 1
-                                                }">
-                                                    <div class="swiper-wrapper row cols-1">
-                                                        <div class="swiper-slide widget-col popular">
-                                                            <div class="post-widget mb-4">
-                                                                <figure class="post-media br-sm">
-                                                                    <img src="{% static "assets/images/blog/sidebar/1.jpg" %}" alt="150" height="150" />
-                                                                </figure>
-                                                                <div class="post-details ">
-                                                                    <div class="post-meta">
-                                                                        <a href="#" class="post-date">March 1, 2021</a>
-                                                                    </div>
-                                                                    <h4 class="post-title">
-                                                                        <a href="{% url "blog_detail_view" %}">Fashion tells about who you are from external point</a>
-                                                                    </h4>
-                                                                </div>
-                                                            </div>
-                                                            <div class="post-widget mb-4">
-                                                                <figure class="post-media br-sm">
-                                                                    <img src="{% static "assets/images/blog/sidebar/2.jpg" %}" alt="150" height="150" />
-                                                                </figure>
-                                                                <div class="post-details">
-                                                                    <div class="post-meta">
-                                                                        <a href="#" class="post-date">March 5, 2021</a>
-                                                                    </div>
-                                                                    <h4 class="post-title">
-                                                                        <a href="{% url "blog_detail_view" %}">New found the men dress for summer</a>
-                                                                    </h4>
-                                                                </div>
-                                                            </div>
-                                                            <div class="post-widget mb-2">
-                                                                <figure class="post-media br-sm">
-                                                                    <img src="{% static "assets/images/blog/sidebar/3.jpg" %}" alt="150" height="150" />
-                                                                </figure>
-                                                                <div class="post-details">
-                                                                    <div class="post-meta">
-                                                                        <a href="#" class="post-date">March 1, 2021</a>
-                                                                    </div>
-                                                                    <h4 class="post-title">
-                                                                        <a href="{% url "blog_detail_view" %}">Cras ornare tristique elit</a>
-                                                                    </h4>
-                                                                </div>
-                                                            </div>
-                                                        </div>
-                                                        <div class="swiper-slide widget-col">
-                                                            <div class="post-widget mb-4">
-                                                                <figure class="post-media br-sm">
-                                                                    <img src="{% static "assets/images/blog/sidebar/4.jpg" %}" alt="150" height="150" />
-                                                                </figure>
-                                                                <div class="post-details">
-                                                                    <div class="post-meta">
-                                                                        <a href="#" class="post-date">March 1, 2021</a>
-                                                                    </div>
-                                                                    <h4 class="post-title">
-                                                                        <a href="{% url "blog_detail_view" %}">Vivamus vestibulum ntulla nec ante</a>
-                                                                    </h4>
-                                                                </div>
-                                                            </div>
-                                                            <div class="post-widget mb-4">
-                                                                <figure class="post-media br-sm">
-                                                                    <img src="{% static "assets/images/blog/sidebar/5.jpg" %}" alt="150" height="150" />
-                                                                </figure>
-                                                                <div class="post-details">
-                                                                    <div class="post-meta">
-                                                                        <a href="#" class="post-date">March 5, 2021</a>
-                                                                    </div>
-                                                                    <h4 class="post-title">
-                                                                        <a href="{% url "blog_detail_view" %}">Fusce lacinia arcuet nulla</a>
-                                                                    </h4>
-                                                                </div>
-                                                            </div>
-                                                            <div class="post-widget mb-2">
-                                                                <figure class="post-media br-sm">
-                                                                    <img src="{% static "assets/images/blog/sidebar/6.jpg" %}" alt="150" height="150" />
-                                                                </figure>
-                                                                <div class="post-details">
-                                                                    <div class="post-meta">
-                                                                        <a href="#" class="post-date">March 1, 2021</a>
-                                                                    </div>
-                                                                    <h4 class="post-title">
-                                                                        <a href="{% url "blog_detail_view" %}">Comes a cool blog post with Images</a>
-                                                                    </h4>
-                                                                </div>
-                                                            </div>
-                                                        </div>
-                                                    </div>
-                                                    <div class="swiper-button-next"></div>
-                                                    <div class="swiper-button-prev"></div>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
+
+                                    <!-- Search -->
+                                    {% include "blog/includes/_blog-search.html" %}
+                                    <!-- Categories -->
+                                    {% include "blog/includes/_blog-categories.html" %}
+                                    <!-- Popular Posts -->
+                                    {% include "blog/includes/_popular-posts.html" %}
+                                    
                                 </div>
                             </div>
                         </aside>
@@ -276,7 +164,7 @@
                     </li>
                 </ul>
             </div>
-            <div class="tab-content">
+            {% comment %} <div class="tab-content">
                 <div class="tab-pane active" id="main-menu">
                     <ul class="mobile-menu">
                         <li><a href="index.html">Home</a></li>
@@ -392,7 +280,7 @@
                                     </ul>
                                 </li>
                                 <li>
-                                    <a href="{% url "blog_detail_view" %}">Single Post</a>
+                                    <a href="post-single.html">Single Post</a>
                                 </li>
                             </ul>
                         </li>
@@ -704,7 +592,7 @@
                         </li>
                     </ul>
                 </div>
-            </div>
+            </div> {% endcomment %}
         </div>
     </div>
     <script data-cfasync="false" src="../../cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script><script src="{% static "assets/vendor/jquery/jquery.min.js" %}"></script>
