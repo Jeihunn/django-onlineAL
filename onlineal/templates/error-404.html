@@ -3,6 +3,7 @@
 
 {% block head %}
 <title>ERROR 404</title>
+
 <link rel="icon" type="image/png" href="{% static "assets/images/icons/favicon.png" %}">
 <link rel="preload" href="{% static "assets/vendor/fontawesome-free/webfonts/fa-regular-400.woff2" %}" as="font" type="font/woff2"
     crossorigin="anonymous">
@@ -20,7 +21,7 @@
 integrity="sha512-z3gLpd7yknf1YoNbCzqRKc4qyor8gaKU1qmn+CShxbuBusANI9QpRohGBreCFkKxLhei6S9CQXFEbbKuqLg0DA==" crossorigin="anonymous" referrerpolicy="no-referrer" />
 {% endblock head %}
 
-{% block body %}
+{% block blody %}
 <body>
     <div class="page-wrapper">
         <h1 class="d-none"></h1>
@@ -34,7 +35,7 @@ integrity="sha512-z3gLpd7yknf1YoNbCzqRKc4qyor8gaKU1qmn+CShxbuBusANI9QpRohGBreCFk
             <nav class="breadcrumb-nav">
                 <div class="container">
                     <ul class="breadcrumb bb-no">
-                        <li><a href="{% url "index_view" %}">Əsas Səhifə</a></li>
+                        <li><a href="index.html">Əsas Səhifə</a></li>
                         <li>Error 404</li>
                     </ul>
                 </div>
@@ -43,7 +44,7 @@ integrity="sha512-z3gLpd7yknf1YoNbCzqRKc4qyor8gaKU1qmn+CShxbuBusANI9QpRohGBreCFk
                 <div class="container">
                     <div class="banner">
                         <figure>
-                            <img src="{% static "assets/images/pages/404.png" %}" alt="Error 404"  
+                            <img src="assets/images/pages/404.png" alt="Error 404"  
                                 width="820" height="460" />
                         </figure>
                         <div class="banner-content text-center">
@@ -51,7 +52,7 @@ integrity="sha512-z3gLpd7yknf1YoNbCzqRKc4qyor8gaKU1qmn+CShxbuBusANI9QpRohGBreCFk
                                 <span class="text-secondary">Oops!!!</span> Xəta var!!!
                             </h2>
                             <p class="text-light">Girdiyiniz linkdə xəta olar bilər, açdığınız səhifə mövcud olmaya bilər.</p>
-                            <a href="{% url 'index_view' %}" class="btn btn-dark btn-rounded btn-icon-right">Əsas Səhifəyə Qayıt<i class="w-icon-long-arrow-right"></i></a>
+                            <a href="index.html" class="btn btn-dark btn-rounded btn-icon-right">Əsas Səhifəyə Qayıt<i class="w-icon-long-arrow-right"></i></a>
                         </div>
                     </div>
                 </div>
@@ -59,10 +60,10 @@ integrity="sha512-z3gLpd7yknf1YoNbCzqRKc4qyor8gaKU1qmn+CShxbuBusANI9QpRohGBreCFk
         </main>
         <!-- =====  End MAIN  ====== -->
 
-
         <!-- ========== FOOTER ========= -->
         {% include "core/includes/_footer.html" %}
         <!-- ========== END FOOTER ========= -->
+        
     </div>
    
     <a id="scroll-top" class="scroll-top" href="#top" title="Top" role="button"> <i class="w-icon-angle-up"></i> <svg version="1.1" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 70 70"> <circle id="progress-indicator" fill="transparent" stroke="#000000" stroke-miterlimit="10" cx="35" cy="35" r="34" style="stroke-dasharray: 16.4198, 400;"></circle> </svg> </a>
@@ -90,7 +91,7 @@ integrity="sha512-z3gLpd7yknf1YoNbCzqRKc4qyor8gaKU1qmn+CShxbuBusANI9QpRohGBreCFk
             <div class="tab-content">
                 <div class="tab-pane active" id="main-menu">
                     <ul class="mobile-menu">
-                        <li><a href="{% url "index_view" %}">Home</a></li>
+                        <li><a href="index.html">Home</a></li>
                         <li>
                             <a href="shop-banner-sidebar.html">Shop</a>
                             <ul>
@@ -518,9 +519,9 @@ integrity="sha512-z3gLpd7yknf1YoNbCzqRKc4qyor8gaKU1qmn+CShxbuBusANI9QpRohGBreCFk
             </div>
         </div>
     </div>
-    <script data-cfasync="false" src="../../cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script><script src="{% static "assets/vendor/jquery/jquery.min.js" %}"></script>
-    <script src="{% static "assets/vendor/magnific-popup/jquery.magnific-popup.min.js" %}"></script>
-    <script src="{% static "assets/js/main.min.js" %}"></script>
+    <script data-cfasync="false" src="../../cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script><script src="assets/vendor/jquery/jquery.min.js"></script>
+    <script src="assets/vendor/magnific-popup/jquery.magnific-popup.min.js"></script>
+    <script src="assets/js/main.min.js"></script>
     <script>(function(){var js = "window['__CF$cv$params']={r:'8298e83d3a02f19a',t:'MTcwMDU2OTQ0MC45MzkwMDA='};_cpo=document.createElement('script');_cpo.nonce='',_cpo.src='../../cdn-cgi/challenge-platform/h/g/scripts/jsd/9914b343/main.js',document.getElementsByTagName('head')[0].appendChild(_cpo);";var _0xh = document.createElement('iframe');_0xh.height = 1;_0xh.width = 1;_0xh.style.position = 'absolute';_0xh.style.top = 0;_0xh.style.left = 0;_0xh.style.border = 'none';_0xh.style.visibility = 'hidden';document.body.appendChild(_0xh);function handler() {var _0xi = _0xh.contentDocument || _0xh.contentWindow.document;if (_0xi) {var _0xj = _0xi.createElement('script');_0xj.innerHTML = js;_0xi.getElementsByTagName('head')[0].appendChild(_0xj);}}if (document.readyState !== 'loading') {handler();} else if (window.addEventListener) {document.addEventListener('DOMContentLoaded', handler);} else {var prev = document.onreadystatechange || function () {};document.onreadystatechange = function (e) {prev(e);if (document.readyState !== 'loading') {document.onreadystatechange = prev;handler();}};}})();</script>
 </body>
-{% endblock body %}
+{% endblock blody %}

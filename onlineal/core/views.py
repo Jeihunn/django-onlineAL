@@ -11,6 +11,15 @@ from .models import (
 # Create your views here.
 
 
+# 404 error view
+def handler404(request, exception):
+    context = {
+        "exception": exception,
+    }
+    return render(request, "error-404.html", context, status=404)
+
+
+
 def index_view(request):
 
     context = {
