@@ -60,6 +60,7 @@ class BlogPost(TimeStampedModel):
         to="blog.BlogCategory",
         on_delete=models.SET_NULL,
         null=True,
+        related_name="posts",
         verbose_name=_("Kateqoriya"),
     )
     content = RichTextField(

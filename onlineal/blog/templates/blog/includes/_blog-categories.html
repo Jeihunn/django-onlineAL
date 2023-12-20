@@ -5,7 +5,7 @@
     <ul class="widget-body filter-items search-ul">
         {% get_blog_categories as blog_categories %}
         {% for category in blog_categories %}
-        <li><a href="blog-listing.html">{{ category.title }}</a></li>
+        <li><a href="{% url "blog_list_view" %}?category={{ category.slug }}">{{ category.title }}</a></li>
         {% endfor %}
     </ul>
 </div>

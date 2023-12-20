@@ -1,8 +1,8 @@
 <div class="widget widget-search-form">
     <div class="widget-body">
-        <form action="#" method="GET" class="input-wrapper input-wrapper-inline">
-            <input type="text" class="form-control"
-                placeholder="Blogda axtar..." autocomplete="off" required>
+        <form action="{% url "blog_list_view" %}" method="GET" class="input-wrapper input-wrapper-inline">
+            <input type="text" name="query" class="form-control"
+                placeholder="Blogda axtar..." autocomplete="off" {% if selected_query %}value="{{ selected_query }}"{% endif %} required>
             <button class="btn btn-search"><i
                     class="w-icon-search"></i></button>
         </form>
