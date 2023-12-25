@@ -1,572 +1,456 @@
 {% extends "core/base.html" %}
 {% load static %}
 
-{% block head %}
-<title>Məhsullar</title>
 
-<script>
-    WebFontConfig = {
-        google: { families: ['Poppins:400,500,600,700'] }
-    };
-    (function (d) {
-        var wf = d.createElement('script'), s = d.scripts[0];
-        wf.src = '{% static "assets/js/webfont.js" %}';
-        wf.async = true;
-        s.parentNode.insertBefore(wf, s);
-    })(document);
-</script>
-<link rel="preload" href="{% static "assets/vendor/fontawesome-free/webfonts/fa-regular-400.woff2" %}" as="font" type="font/woff2"
-    crossorigin="anonymous">
-<link rel="preload" href="{% static "assets/vendor/fontawesome-free/webfonts/fa-solid-900.woff2" %}" as="font" type="font/woff2"
-    crossorigin="anonymous">
-<link rel="preload" href="{% static "assets/vendor/fontawesome-free/webfonts/fa-brands-400.woff2" %}" as="font" type="font/woff2"
+{% block head %}
+<head>
+    <title></title>
+    <link rel="preload" href="{% static "assets/vendor/fontawesome-free/webfonts/fa-regular-400.woff2" %}" as="font" type="font/woff2"
         crossorigin="anonymous">
-<link rel="preload" href="{% static "assets/fonts/wolmart87d5.woff?png09e" %}" as="font" type="font/woff" crossorigin="anonymous">
-<link rel="stylesheet" type="text/css" href="{% static "assets/vendor/fontawesome-free/css/all.min.css" %}">
-<link rel="stylesheet" type="text/css" href="{% static "assets/vendor/animate/animate.min.css" %}">
-<link rel="stylesheet" href="{% static "assets/vendor/swiper/swiper-bundle.min.css" %}">
-<link rel="stylesheet" type="text/css" href="{% static "assets/vendor/nouislider/nouislider.min.css" %}">
-<link rel="stylesheet" type="text/css" href="{% static "assets/vendor/magnific-popup/magnific-popup.min.css" %}">
-<link rel="stylesheet" type="text/css" href="{% static "assets/css/style.min.css" %}">
-<link rel="stylesheet" type="text/css" href="{% static "assets/css/main.min.css" %}">
-<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css"
-integrity="sha512-z3gLpd7yknf1YoNbCzqRKc4qyor8gaKU1qmn+CShxbuBusANI9QpRohGBreCFkKxLhei6S9CQXFEbbKuqLg0DA==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <link rel="preload" href="{% static "assets/vendor/fontawesome-free/webfonts/fa-solid-900.woff2" %}" as="font" type="font/woff2"
+        crossorigin="anonymous">
+    <link rel="preload" href="{% static "assets/vendor/fontawesome-free/webfonts/fa-brands-400.woff2" %}" as="font" type="font/woff2"
+            crossorigin="anonymous">
+    <link rel="preload" href="{% static "assets/fonts/wolmart87d5.woff?png09e" %}" as="font" type="font/woff" crossorigin="anonymous">
+    <link rel="stylesheet" type="text/css" href="{% static "assets/vendor/fontawesome-free/css/all.min.css" %}">
+    <link rel="stylesheet" type="text/css" href="{% static "assets/vendor/animate/animate.min.css" %}">
+    <link rel="stylesheet" type="text/css" href="{% static "assets/vendor/magnific-popup/magnific-popup.min.css" %}">
+    <link rel="stylesheet" href="{% static "assets/vendor/swiper/swiper-bundle.min.css" %}">
+    <link rel="stylesheet" type="text/css" href="{% static "assets/vendor/photoswipe/photoswipe.min.css" %}">
+    <link rel="stylesheet" type="text/css" href="{% static "assets/vendor/photoswipe/default-skin/default-skin.min.css" %}">
+    <link rel="stylesheet" type="text/css" href="{% static "assets/css/style.min.css" %}">
+    <link rel="stylesheet" type="text/css" href="{% static "assets/css/main.min.css" %}">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css" 
+    integrity="sha512-z3gLpd7yknf1YoNbCzqRKc4qyor8gaKU1qmn+CShxbuBusANI9QpRohGBreCFkKxLhei6S9CQXFEbbKuqLg0DA==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+</head>
 {% endblock head %}
+
 
 {% block body %}
 <body>
     <div class="page-wrapper">
-        <h1 class="d-none">Wolmart - Responsive Marketplace HTML Template</h1>
 
         <!-- ========== Header ========= -->
         {% include "core/includes/_header.html" %}
         <!-- ========== END Header ========= -->
-
+      
         <!-- ========== Main ========== -->
-        <main class="main">
-            <nav class="breadcrumb-nav">
-                <div class="container">
-                    <ul class="breadcrumb bb-no">
-                        <li><a href="index.html">Əsas Səhifə</a></li>
-                        <li>Məhsullar</li>
-                    </ul>
-                </div>
+        <main class="main mb-10 pb-1">
+            <nav class="breadcrumb-nav container">
+                <ul class="breadcrumb bb-no">
+                    <li><a href="index.html">Əsas Səhifə</a></li>
+                    <li>Məhsullar</li>
+                </ul>
             </nav>
             <div class="page-content">
                 <div class="container">
-                    <div class="shop-content row gutter-lg mb-10">
-                        <aside class="sidebar shop-sidebar sticky-sidebar-wrapper sidebar-fixed">
-                            <div class="sidebar-overlay"></div>
-                            <a class="sidebar-close" href="#"><i class="close-icon"></i></a>
-                            <div class="sidebar-content scrollable">
-                                <div class="sticky-sidebar">
-                                    <div class="filter-actions">
-                                        <label>Filter :</label>
-                                    </div>
-                                    <div class="widget widget-collapsible">
-                                        <h3 class="widget-title"><label>Bütün Kateqoriyalar</label></h3>
-                                        <ul class="widget-body filter-items search-ul">
-                                            <li><a href="#">Accessories</a></li>
-                                            <li><a href="#">Babies</a></li>
-                                            <li><a href="#">Beauty</a></li>
-                                            <li><a href="#">Decoration</a></li>
-                                            <li><a href="#">Electronics</a></li>
-                                            <li><a href="#">Fashion</a></li>
-                                            <li><a href="#">Food</a></li>
-                                            <li><a href="#">Furniture</a></li>
-                                            <li><a href="#">Kitchen</a></li>
-                                            <li><a href="#">Medical</a></li>
-                                            <li><a href="#">Sports</a></li>
-                                            <li><a href="#">Watches</a></li>
-                                        </ul>
-                                    </div>
-                                    <div class="widget widget-collapsible">
-                                        <h3 class="widget-title"><label>Qiymət</label></h3>
-                                        <div class="widget-body">
-                                            <ul class="filter-items search-ul">
-                                                <li><a href="#">0.00<span> ₼</span> - 100.00<span> ₼</span></a></li>
-                                                <li><a href="#">100.00<span> ₼</span> - 200.00<span> ₼</span></a></li>
-                                                <li><a href="#">200.00<span> ₼</span> - 300.00<span> ₼</span></a></li>
-                                                <li><a href="#">300.00<span> ₼</span> - 500.00<span> ₼</span></a></li>
-                                                <li><a href="#">500.00<span> ₼</span>+</a></li>
-                                            </ul>
-                                            <form class="price-range">
-                                                <input type="number" name="min_price" class="min_price text-center"
-                                                    placeholder="min₼"><span class="delimiter">-</span><input
-                                                    type="number" name="max_price" class="max_price text-center"
-                                                    placeholder="max₼"><a href="#"
-                                                    class="btn btn-primary btn-rounded">Axtar</a>
-                                            </form>
+                    <div class="row gutter-lg">
+                        <div class="main-content">
+                            <div class="product product-single row">
+                                <div class="col-md-6 mb-6">
+                                    <div class="product-gallery product-gallery-sticky">
+                                        <div class="swiper-container product-single-swiper swiper-theme nav-inner" data-swiper-options="{
+                                            'navigation': {
+                                                'nextEl': '.swiper-button-next',
+                                                'prevEl': '.swiper-button-prev'
+                                            }
+                                        }">
+                                            <div class="swiper-wrapper row cols-1 gutter-no">
+                                                <div class="swiper-slide myProduct">
+                                                    <figure class="product-image">
+                                                        <img src="{% static "assets/images/products/default/1-800x900.jpg" %}"
+                                                            data-zoom-image="{% static "assets/images/products/default/1-800x900.jpg" %}"
+                                                            alt="Electronics Black Wrist Watch">
+                                                    </figure>
+                                                </div>
+                                                <div class="swiper-slide myProduct">
+                                                    <figure class="product-image">
+                                                        <img src="{% static "assets/images/products/default/2-800x900.jpg" %}"
+                                                            data-zoom-image="{% static "assets/images/products/default/2-800x900.jpg" %}"
+                                                            alt="Electronics Black Wrist Watch">
+                                                    </figure>
+                                                </div>
+                                                <div class="swiper-slide myProduct">
+                                                    <figure class="product-image">
+                                                        <img src="{% static "assets/images/products/default/3-800x900.jpg" %}"
+                                                            data-zoom-image="{% static "assets/images/products/default/3-800x900.jpg" %}"
+                                                            alt="Electronics Black Wrist Watch">
+                                                    </figure>
+                                                </div>
+                                                <div class="swiper-slide myProduct">
+                                                    <figure class="product-image">
+                                                        <img src="{% static "assets/images/products/default/4-800x900.jpg" %}"
+                                                            data-zoom-image="{% static "assets/images/products/default/4-800x900.jpg" %}"
+                                                            alt="Electronics Black Wrist Watch">
+                                                    </figure>
+                                                </div>
+                                                <div class="swiper-slide myProduct">
+                                                    <figure class="product-image">
+                                                        <img src="{% static "assets/images/products/default/5-800x900.jpg" %}"
+                                                            data-zoom-image="{% static "assets/images/products/default/5-800x900.jpg" %}"
+                                                            alt="Electronics Black Wrist Watch">
+                                                    </figure>
+                                                </div>
+                                                <div class="swiper-slide myProduct">
+                                                    <figure class="product-image">
+                                                        <img src="{% static "assets/images/products/default/6-800x900.jpg" %}"
+                                                            data-zoom-image="{% static "assets/images/products/default/6-800x900.jpg" %}"
+                                                            alt="Electronics Black Wrist Watch">
+                                                    </figure>
+                                                </div>
+                                            </div>
+                                            <button class="swiper-button-next"></button>
+                                            <button class="swiper-button-prev"></button>
+                                            <a href="#" class="product-gallery-btn product-image-full"><i class="w-icon-zoom"></i></a>
+                                            
+
+                                        </div>
+                                        <div class="product-thumbs-wrap swiper-container" data-swiper-options="{
+                                            'navigation': {
+                                                'nextEl': '.swiper-button-next',
+                                                'prevEl': '.swiper-button-prev'
+                                            }
+                                        }">
+                                            <div class="product-thumbs swiper-wrapper row cols-4 gutter-sm">
+                                                <div class="product-thumb swiper-slide myProduct">
+                                                    <img src="{% static "assets/images/products/default/1-800x900.jpg" %}"
+                                                        alt="Product Thumb">
+                                                </div>
+                                                <div class="product-thumb swiper-slide myProduct">
+                                                    <img src="{% static "assets/images/products/default/2-800x900.jpg" %}"
+                                                        alt="Product Thumb">
+                                                </div>
+                                                <div class="product-thumb swiper-slide myProduct">
+                                                    <img src="{% static "assets/images/products/default/3-800x900.jpg" %}"
+                                                        alt="Product Thumb">
+                                                </div>
+                                                <div class="product-thumb swiper-slide myProduct">
+                                                    <img src="{% static "assets/images/products/default/4-800x900.jpg" %}"
+                                                        alt="Product Thumb">
+                                                </div>
+                                                <div class="product-thumb swiper-slide myProduct">
+                                                    <img src="{% static "assets/images/products/default/5-800x900.jpg" %}"
+                                                        alt="Product Thumb">
+                                                </div>
+                                                <div class="product-thumb swiper-slide myProduct">
+                                                    <img src="{% static "assets/images/products/default/6-800x900.jpg" %}"
+                                                        alt="Product Thumb">
+                                                </div>
+                                            </div>
+                                            <button class="swiper-button-next"></button>
+                                            <button class="swiper-button-prev"></button>
                                         </div>
                                     </div>
-                                    <div class="widget widget-collapsible">
-                                        <h3 class="widget-title"><label>Ölçü</label></h3>
-                                        <ul class="widget-body filter-items item-check mt-1">
-                                            <li><a href="#">XL</a></li>
-                                            <li><a href="#">L</a></li>
-                                            <li><a href="#">M</a></li>
-                                            <li><a href="#">S</a></li>
-                                        </ul>
+                                </div>
+                                <div class="col-md-6 mb-4 mb-md-6">
+                                    <div class="product-details" data-sticky-options="{'minWidth': 767}">
+                                        <h1 class="product-title">Electronics Black Wrist Watch</h1>
+                                        <div class="product-bm-wrapper">
+                                            <div class="product-meta">
+                                                <div class="product-Categories">
+                                                    Kateqoriya:
+                                                    <span class="product-category"><a href="#">Electronics</a></span>
+                                                </div>
+                                                <div class="product-sku">
+                                                    Kodu: <span>MS46891340</span>
+                                                </div>
+                                            </div>
+                                            <div class="product-link-wrapper d-flex">
+                                                <a href="#" class="btn-product-icon btn-wishlist w-icon-heart"><span></span></a>
+                                            </div>
+                                        </div>
+
+                                        <hr class="product-divider">
+
+                                        <div class="product-price">
+                                            <ins class="new-price">40.00<span> ₼</span></ins>
+                                            <del class="old-price" style="font-size: 3rem;">253.50<span> ₼</span></del>
+                                        </div>
+                                        
+                                        <hr class="product-divider">
+                                        <div class="product-form product-variation-form product-color-swatch">
+                                            <label>Rəng:</label>
+                                            <div class="d-flex align-items-center product-variations">
+                                                <a href="#" class="color" style="background-color: #ffcc01"></a>
+                                                <a href="#" class="color" style="background-color: #ca6d00;"></a>
+                                                <a href="#" class="color" style="background-color: #1c93cb;"></a>
+                                                <a href="#" class="color" style="background-color: #ccc;"></a>
+                                                <a href="#" class="color" style="background-color: #333;"></a>
+                                            </div>
+                                        </div>
+                                        <div class="product-form product-variation-form product-size-swatch">
+                                            <label class="mb-1">Ölçü:</label>
+                                            <div class="flex-wrap d-flex align-items-center product-variations">
+                                                <a href="#" class="size">S</a>
+                                                <a href="#" class="size">M</a>
+                                                <a href="#" class="size">L</a>
+                                                <a href="#" class="size">XL</a>
+                                            </div>
+                                            <a href="#" class="product-variation-clean">Clean All</a>
+                                        </div>
+
+                                        <div class="product-variation-price">
+                                            <span></span>
+                                        </div>
+
+                                        <div class="fix-bottom product-sticky-content sticky-content">
+                                            <div class="product-form container">
+                                                <div class="product-qty-form">
+                                                    <div class="input-group">
+                                                        <input class="quantity form-control" type="number" min="1"
+                                                            max="10000000">
+                                                        <button class="quantity-plus w-icon-plus"></button>
+                                                        <button class="quantity-minus w-icon-minus"></button>
+                                                    </div>
+                                                </div>
+                                                <div class="product-form container" style="gap: 10px;">
+                                                    <button class="btn btn-primary btn-add">
+                                                        <i class="w-icon-cart"></i>
+                                                        <span>Səbətə əlavə et</span>
+                                                    </button>
+                                                    <button class="btn btn-primary wp-link" style="background-color: #71c652; color: white;">    
+                                                        <a href="https://api.whatsapp.com/send?phone=15551234567" target="_blank"><i class="fa-brands fa-whatsapp" style="color: #ffffff;"></i></a>
+                                                        <span>İNDİ AL </span>
+                                                    </button>   
+                                                </div>
+                                               
+                                            </div>
+                                                   
+                                        </div>
+                                        <div class="social-links-wrapper">
+                                            <div class="social-links">
+                                                <div class="social-icons social-no-color border-thin">
+                                                    <a href="#" class="social-icon social-facebook w-icon-facebook"></a>
+                                                    <a href="#" class="social-icon social-twitter w-icon-twitter"></a>
+                                                    <a href="#" class="social-icon social-whatsapp fab fa-whatsapp"></a>
+                                                    <a href="#" class="social-icon social-instagram fab fa-instagram"></a> 
+                                                    <a href="#" class="social-icon social-youtube fab fa-youtube"></a> 
+                                                </div>
+                                            </div>
+                                        </div>
                                     </div>
-                                    <div class="widget widget-collapsible">
-                                        <h3 class="widget-title"><label>Brend</label></h3>
-                                        <ul class="widget-body filter-items item-check mt-1">
-                                            <li><a href="#">Elegant Auto Group</a></li>
-                                            <li><a href="#">Green Grass</a></li>
-                                            <li><a href="#">Node Js</a></li>
-                                            <li><a href="#">NS8</a></li>
-                                            <li><a href="#">Red</a></li>
-                                            <li><a href="#">Skysuite Tech</a></li>
-                                            <li><a href="#">Sterling</a></li>
-                                        </ul>
+                                </div>
+                            </div>
+                            <div class="tab tab-nav-boxed tab-nav-underline product-tabs">
+                                <ul class="nav nav-tabs" role="tablist">
+                                    <li class="nav-item">
+                                        <a href="#product-tab-description" class="nav-link active">Ətraflı məlumat</a>
+                                    </li>
+                                </ul>
+                                <div class="tab-content">
+                                    <div class="tab-pane active" id="product-tab-description">
+                                        <div class="row mb-4">
+                                            <div class="col-md-12 mb-5">
+                                                <p class="mb-4">Lorem ipsum dolor sit amet, consectetur adipiscing elit,
+                                                    sed do eiusmod tempor incididunt arcu cursus vitae congue mauris.
+                                                    Sagittis id consectetur purus ut. Tellus rutrum tellus pelle Vel
+                                                    pretium lectus quam id leo in vitae turpis massa.</p>
+                                                <ul class="list-type-check">
+                                                    <li>Nunc nec porttitor turpis. In eu risus enim. In vitae mollis
+                                                        elit.
+                                                    </li>
+                                                    <li>Vivamus finibus vel mauris ut vehicula.</li>
+                                                    <li>Nullam a magna porttitor, dictum risus nec, faucibus sapien.
+                                                    </li>
+                                                </ul>
+                                            </div>
+                                        </div>
                                     </div>
-                                    <div class="widget widget-collapsible">
-                                        <h3 class="widget-title"><label>Rəng</label></h3>
-                                        <ul class="widget-body filter-items item-check mt-1">
-                                            <li><a href="#">Qara</a></li>
-                                            <li><a href="#">Mavi</a></li>
-                                            <li><a href="#">Qəhvəyi</a></li>
-                                            <li><a href="#">Yaşıl</a></li>
-                                            <li><a href="#">Boz</a></li>
-                                            <li><a href="#">Narıncı</a></li>
-                                            <li><a href="#">Sarı</a></li>
-                                        </ul>
+                            
+                                </div>
+                            </div>
+                            <section class="related-product-section">
+                                <div class="title-link-wrapper mb-4">
+                                    <h4 class="title">Oxşar məhsullar</h4>
+                                    <a href="#" class="btn btn-dark btn-link btn-slide-right btn-icon-right">Daha çox
+                                        <i class="w-icon-long-arrow-right"></i></a>
+                                </div>
+                                <div class="swiper-container swiper-theme" data-swiper-options="{
+                                    'spaceBetween': 20,
+                                    'slidesPerView': 2,
+                                    'breakpoints': {
+                                        '576': {
+                                            'slidesPerView': 3
+                                        },
+                                        '768': {
+                                            'slidesPerView': 4
+                                        },
+                                        '992': {
+                                            'slidesPerView': 3
+                                        }
+                                    }
+                                }">
+                                    <div class="swiper-wrapper row cols-lg-3 cols-md-4 cols-sm-3 cols-2">
+                                        <div class="swiper-slide product-wrap">
+                                            <div class="product product-simple text-center">
+                                                <figure class="product-media">
+                                                    <a href="product-default.html">
+                                                        <img src="{% static "assets/images/demos/demo3/products/2-1-1.jpg" %}" alt="Product"
+                                                            width="330" height="338" />
+                                                    </a>
+                                                    <div class="product-action-vertical">
+                                                        <a href="#" class="btn-product-icon btn-wishlist w-icon-heart"></a>
+                                                        <p class="decreasingPrice">-90%</p>
+                                                    </div>
+                                                    <div class="product-action">
+                                                        <a href="#" class="btn-product btn-quickview" title="Ətraflı bax">
+                                                            <i class="fa-regular fa-eye" style="color: #ffffff; font-size: 1.4em;"></i></a>
+                                                    </div>
+                                                </figure>
+                                                <div class="product-details">
+                                                    <h4 class="product-name"><a href="product-default.html">Leather Stripe Watch</a>
+                                                    </h4>
+                                                    <div class="product-pa-wrapper">
+                                                        <div class="product-price">
+                                                            <ins class="new-price">125.00<span> ₼</span></ins>
+                                                            <del class="old-price">253.50<span> ₼</span></del>
+                                                        </div>
+                                                        <div class="product-action">
+                                                            <a href="#" 
+                                                                class="btn-cart btn-product btn btn-icon-right btn-link btn-underline"><i class="fa-solid fa-bag-shopping" style="color: #fe7c00; margin-right: 5px;"></i> Səbətə əlavə et</a>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>  
+                                        <div class="swiper-slide product-wrap">
+                                            <div class="product product-simple text-center">
+                                                <figure class="product-media">
+                                                    <a href="product-default.html">
+                                                        <img src="{% static "assets/images/demos/demo3/products/2-1-1.jpg" %}" alt="Product"
+                                                            width="330" height="338" />
+                                                    </a>
+                                                    <div class="product-action-vertical">
+                                                        <a href="#" class="btn-product-icon btn-wishlist w-icon-heart"></a>
+                                                        <p class="decreasingPrice">-90%</p>
+                                                    </div>
+                                                    <div class="product-action">
+                                                        <a href="#" class="btn-product btn-quickview" title="Ətraflı bax">
+                                                            <i class="fa-regular fa-eye" style="color: #ffffff; font-size: 1.4em;"></i></a>
+                                                    </div>
+                                                </figure>
+                                                <div class="product-details">
+                                                    <h4 class="product-name"><a href="product-default.html">Leather Stripe Watch</a>
+                                                    </h4>
+                                                    <div class="product-pa-wrapper">
+                                                        <div class="product-price">
+                                                            <ins class="new-price">125.00<span> ₼</span></ins>
+                                                            <del class="old-price">253.50<span> ₼</span></del>
+                                                        </div>
+                                                        <div class="product-action">
+                                                            <a href="#"
+                                                                class="btn-cart btn-product btn btn-icon-right btn-link btn-underline"><i class="fa-solid fa-bag-shopping" style="color: #fe7c00;"></i> Səbətə əlavə et</a>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>  
+                                        <div class="swiper-slide product-wrap">
+                                            <div class="product product-simple text-center">
+                                                <figure class="product-media">
+                                                    <a href="product-default.html">
+                                                        <img src="{% static "assets/images/demos/demo3/products/2-1-1.jpg" %}" alt="Product"
+                                                            width="330" height="338" />
+                                                    </a>
+                                                    <div class="product-action-vertical">
+                                                        <a href="#" class="btn-product-icon btn-wishlist w-icon-heart"></a>
+                                                        <p class="decreasingPrice">-90%</p>
+                                                    </div>
+                                                    <div class="product-action">
+                                                        <a href="#" class="btn-product btn-quickview" title="Ətraflı bax">
+                                                            <i class="fa-regular fa-eye" style="color: #ffffff; font-size: 1.4em;"></i></a>
+                                                    </div>
+                                                </figure>
+                                                <div class="product-details">
+                                                    <h4 class="product-name"><a href="product-default.html">Leather Stripe Watch</a>
+                                                    </h4>
+                                                    <div class="product-pa-wrapper">
+                                                        <div class="product-price">
+                                                            <ins class="new-price">125.00<span> ₼</span></ins>
+                                                            <del class="old-price">253.50<span> ₼</span></del>
+                                                        </div>
+                                                        <div class="product-action">
+                                                            <a href="#"
+                                                                class="btn-cart btn-product btn btn-icon-right btn-link btn-underline"><i class="fa-solid fa-bag-shopping" style="color: #fe7c00;"></i> Səbətə əlavə et</a>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>  
+                                        <div class="swiper-slide product-wrap">
+                                            <div class="product product-simple text-center">
+                                                <figure class="product-media">
+                                                    <a href="product-default.html">
+                                                        <img src="{% static "assets/images/demos/demo3/products/2-1-1.jpg" %}" alt="Product"
+                                                            width="330" height="338" />
+                                                    </a>
+                                                    <div class="product-action-vertical">
+                                                        <a href="#" class="btn-product-icon btn-wishlist w-icon-heart"></a>
+                                                        <p class="decreasingPrice">-90%</p>
+                                                    </div>
+                                                    <div class="product-action">
+                                                        <a href="#" class="btn-product btn-quickview" title="Ətraflı bax">
+                                                            <i class="fa-regular fa-eye" style="color: #ffffff; font-size: 1.4em;"></i></a>
+                                                    </div>
+                                                </figure>
+                                                <div class="product-details">
+                                                    <h4 class="product-name"><a href="product-default.html">Leather Stripe Watch</a>
+                                                    </h4>
+                                                    <div class="product-pa-wrapper">
+                                                        <div class="product-price">
+                                                            <ins class="new-price">125.00<span> ₼</span></ins>
+                                                            <del class="old-price">253.50<span> ₼</span></del>
+                                                        </div>
+                                                        <div class="product-action">
+                                                            <a href="#"
+                                                                class="btn-cart btn-product btn btn-icon-right btn-link btn-underline"><i class="fa-solid fa-bag-shopping" style="color: #fe7c00;"></i> Səbətə əlavə et</a>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>  
+                                    </div>
+                                </div>
+                            </section>
+                        </div>
+                        <aside class="sidebar product-sidebar sidebar-fixed right-sidebar sticky-sidebar-wrapper">
+                            <div class="sidebar-overlay"></div>
+                            <a class="sidebar-close" href="#"><i class="close-icon"></i></a>
+                            <a href="#" class="sidebar-toggle d-flex d-lg-none"><i class="fas fa-chevron-left"></i></a>
+                            <div class="sidebar-content scrollable">
+                                <div class="sticky-sidebar">
+                                    <div class="widget widget-icon-box mb-6">
+                                        <div class="icon-box icon-box-side">
+                                            <span class="icon-box-icon text-dark">
+                                                <i class="w-icon-truck"></i>
+                                            </span>
+                                            <div class="icon-box-content">
+                                                <h4 class="icon-box-title">Pulsuz çatdırılma & Qaytarılma</h4>
+                                                <p>Bütün məhsullara şamil olunur</p>
+                                            </div>
+                                        </div>
+                                        <div class="icon-box icon-box-side">
+                                            <span class="icon-box-icon text-dark">
+                                                <i class="w-icon-bag"></i>
+                                            </span>
+                                            <div class="icon-box-content">
+                                                <h4 class="icon-box-title">Güvənli ödəniş</h4>
+                                                <p>Güvənli ödəniş üçün sizə əminlik veririk</p>
+                                            </div>
+                                        </div>
+                                        <div class="icon-box icon-box-side">
+                                            <span class="icon-box-icon text-dark">
+                                                <i class="w-icon-money"></i>
+                                            </span>
+                                            <div class="icon-box-content">
+                                                <h4 class="icon-box-title">Pulu geri qaytarma</h4>
+                                                <p>30 gün ərzində qaytarılma olur</p>
+                                            </div>
+                                        </div>
                                     </div>
                                 </div>
                             </div>
                         </aside>
-                        <div class="main-content">
-                            <nav class="toolbox sticky-toolbox sticky-content fix-top">
-                                <div class="toolbox-left">
-                                    <a href="#" class="btn btn-primary btn-outline btn-rounded left-sidebar-toggle 
-                                        btn-icon-left d-block d-lg-none"><i
-                                            class="w-icon-category"></i><span>Filters</span></a>
-                                    <div class="toolbox-item toolbox-sort select-box text-dark">
-                                        <label>Sırala :</label>
-                                        <select name="orderby" class="form-control">
-                                            <option value="default" selected="selected">Default sorting</option>
-                                            <option value="popularity">Sort by popularity</option>
-                                            <option value="rating">Sort by average rating</option>
-                                            <option value="date">Sort by latest</option>
-                                            <option value="price-low">Sort by pric: low to high</option>
-                                            <option value="price-high">Sort by price: high to low</option>
-                                        </select>
-                                    </div>
-                                </div>
-                            </nav>
-                            <div class="product-wrapper row cols-md-3 cols-sm-2 cols-2">
-
-                                <div class="swiper-slide product-wrap">
-                                    <div class="product product-simple text-center">
-                                        <figure class="product-media">
-                                            <a href="{% url "product_detail_view" %}">
-                                                <img src="{% static "assets/images/demos/demo3/products/2-1-1.jpg" %}" alt="Product"
-                                                    width="330" height="338" />
-                                            </a>
-                                            <div class="product-action-vertical">
-                                                <a href="#" class="btn-product-icon btn-wishlist w-icon-heart"></a>
-                                                <p class="decreasingPrice">-90%</p>
-                                            </div>
-                                            <div class="product-action">
-                                                <a href="#" class="btn-product btn-quickview" title="Ətraflı bax">
-                                                    <i class="fa-regular fa-eye" style="color: #ffffff; font-size: 1.4em;"></i></a>
-                                            </div>
-                                        </figure>
-                                        <div class="product-details">
-                                            <h4 class="product-name"><a href="{% url "product_detail_view" %}">Leather Stripe Watch</a>
-                                            </h4>
-                                            <div class="product-pa-wrapper">
-                                                <div class="product-price">
-                                                    <ins class="new-price">125.00<span> ₼</span></ins>
-                                                    <del class="old-price">253.50<span> ₼</span></del>
-                                                </div>
-                                                <div class="product-action">
-                                                    <a href="#" 
-                                                        class="btn-cart btn-product btn btn-icon-right btn-link btn-underline"><i class="fa-solid fa-bag-shopping" style="color: #fe7c00; margin-right: 5px;"></i> Səbətə əlavə et</a>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>  
-
-                                <div class="swiper-slide product-wrap">
-                                    <div class="product product-simple text-center">
-                                        <figure class="product-media">
-                                            <a href="product-default.html">
-                                                <img src="{% static "assets/images/demos/demo3/products/2-1-1.jpg" %}" alt="Product"
-                                                    width="330" height="338" />
-                                            </a>
-                                            <div class="product-action-vertical">
-                                                <a href="#" class="btn-product-icon btn-wishlist w-icon-heart"></a>
-                                                <p class="decreasingPrice">-90%</p>
-                                            </div>
-                                            <div class="product-action">
-                                                <a href="#" class="btn-product btn-quickview" title="Ətraflı bax">
-                                                    <i class="fa-regular fa-eye" style="color: #ffffff; font-size: 1.4em;"></i></a>
-                                            </div>
-                                        </figure>
-                                        <div class="product-details">
-                                            <h4 class="product-name"><a href="product-default.html">Leather Stripe Watch</a>
-                                            </h4>
-                                            <div class="product-pa-wrapper">
-                                                <div class="product-price">
-                                                    <ins class="new-price">125.00<span> ₼</span></ins>
-                                                    <del class="old-price">253.50<span> ₼</span></del>
-                                                </div>
-                                                <div class="product-action">
-                                                    <a href="#" 
-                                                        class="btn-cart btn-product btn btn-icon-right btn-link btn-underline"><i class="fa-solid fa-bag-shopping" style="color: #fe7c00; margin-right: 5px;"></i> Səbətə əlavə et</a>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>  
-                                <div class="swiper-slide product-wrap">
-                                    <div class="product product-simple text-center">
-                                        <figure class="product-media">
-                                            <a href="product-default.html">
-                                                <img src="{% static "assets/images/demos/demo3/products/2-1-1.jpg" %}" alt="Product"
-                                                    width="330" height="338" />
-                                            </a>
-                                            <div class="product-action-vertical">
-                                                <a href="#" class="btn-product-icon btn-wishlist w-icon-heart"></a>
-                                                <p class="decreasingPrice">-90%</p>
-                                            </div>
-                                            <div class="product-action">
-                                                <a href="#" class="btn-product btn-quickview" title="Ətraflı bax">
-                                                    <i class="fa-regular fa-eye" style="color: #ffffff; font-size: 1.4em;"></i></a>
-                                            </div>
-                                        </figure>
-                                        <div class="product-details">
-                                            <h4 class="product-name"><a href="product-default.html">Leather Stripe Watch</a>
-                                            </h4>
-                                            <div class="product-pa-wrapper">
-                                                <div class="product-price">
-                                                    <ins class="new-price">125.00<span> ₼</span></ins>
-                                                    <del class="old-price">253.50<span> ₼</span></del>
-                                                </div>
-                                                <div class="product-action">
-                                                    <a href="#" 
-                                                        class="btn-cart btn-product btn btn-icon-right btn-link btn-underline"><i class="fa-solid fa-bag-shopping" style="color: #fe7c00; margin-right: 5px;"></i> Səbətə əlavə et</a>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>  
-                                <div class="swiper-slide product-wrap">
-                                    <div class="product product-simple text-center">
-                                        <figure class="product-media">
-                                            <a href="product-default.html">
-                                                <img src="{% static "assets/images/demos/demo3/products/2-1-1.jpg" %}" alt="Product"
-                                                    width="330" height="338" />
-                                            </a>
-                                            <div class="product-action-vertical">
-                                                <a href="#" class="btn-product-icon btn-wishlist w-icon-heart"></a>
-                                                <p class="decreasingPrice">-90%</p>
-                                            </div>
-                                            <div class="product-action">
-                                                <a href="#" class="btn-product btn-quickview" title="Ətraflı bax">
-                                                    <i class="fa-regular fa-eye" style="color: #ffffff; font-size: 1.4em;"></i></a>
-                                            </div>
-                                        </figure>
-                                        <div class="product-details">
-                                            <h4 class="product-name"><a href="product-default.html">Leather Stripe Watch</a>
-                                            </h4>
-                                            <div class="product-pa-wrapper">
-                                                <div class="product-price">
-                                                    <ins class="new-price">125.00<span> ₼</span></ins>
-                                                    <del class="old-price">253.50<span> ₼</span></del>
-                                                </div>
-                                                <div class="product-action">
-                                                    <a href="#" 
-                                                        class="btn-cart btn-product btn btn-icon-right btn-link btn-underline"><i class="fa-solid fa-bag-shopping" style="color: #fe7c00; margin-right: 5px;"></i> Səbətə əlavə et</a>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>  
-                                <div class="swiper-slide product-wrap">
-                                    <div class="product product-simple text-center">
-                                        <figure class="product-media">
-                                            <a href="product-default.html">
-                                                <img src="{% static "assets/images/demos/demo3/products/2-1-1.jpg" %}" alt="Product"
-                                                    width="330" height="338" />
-                                            </a>
-                                            <div class="product-action-vertical">
-                                                <a href="#" class="btn-product-icon btn-wishlist w-icon-heart"></a>
-                                                <p class="decreasingPrice">-90%</p>
-                                            </div>
-                                            <div class="product-action">
-                                                <a href="#" class="btn-product btn-quickview" title="Ətraflı bax">
-                                                    <i class="fa-regular fa-eye" style="color: #ffffff; font-size: 1.4em;"></i></a>
-                                            </div>
-                                        </figure>
-                                        <div class="product-details">
-                                            <h4 class="product-name"><a href="product-default.html">Leather Stripe Watch</a>
-                                            </h4>
-                                            <div class="product-pa-wrapper">
-                                                <div class="product-price">
-                                                    <ins class="new-price">125.00<span> ₼</span></ins>
-                                                    <del class="old-price">253.50<span> ₼</span></del>
-                                                </div>
-                                                <div class="product-action">
-                                                    <a href="#" 
-                                                        class="btn-cart btn-product btn btn-icon-right btn-link btn-underline"><i class="fa-solid fa-bag-shopping" style="color: #fe7c00; margin-right: 5px;"></i> Səbətə əlavə et</a>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>  
-                                <div class="swiper-slide product-wrap">
-                                    <div class="product product-simple text-center">
-                                        <figure class="product-media">
-                                            <a href="product-default.html">
-                                                <img src="{% static "assets/images/demos/demo3/products/2-1-1.jpg" %}" alt="Product"
-                                                    width="330" height="338" />
-                                            </a>
-                                            <div class="product-action-vertical">
-                                                <a href="#" class="btn-product-icon btn-wishlist w-icon-heart"></a>
-                                                <p class="decreasingPrice">-90%</p>
-                                            </div>
-                                            <div class="product-action">
-                                                <a href="#" class="btn-product btn-quickview" title="Ətraflı bax">
-                                                    <i class="fa-regular fa-eye" style="color: #ffffff; font-size: 1.4em;"></i></a>
-                                            </div>
-                                        </figure>
-                                        <div class="product-details">
-                                            <h4 class="product-name"><a href="product-default.html">Leather Stripe Watch</a>
-                                            </h4>
-                                            <div class="product-pa-wrapper">
-                                                <div class="product-price">
-                                                    <ins class="new-price">125.00<span> ₼</span></ins>
-                                                    <del class="old-price">253.50<span> ₼</span></del>
-                                                </div>
-                                                <div class="product-action">
-                                                    <a href="#" 
-                                                        class="btn-cart btn-product btn btn-icon-right btn-link btn-underline"><i class="fa-solid fa-bag-shopping" style="color: #fe7c00; margin-right: 5px;"></i> Səbətə əlavə et</a>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>  
-                                <div class="swiper-slide product-wrap">
-                                    <div class="product product-simple text-center">
-                                        <figure class="product-media">
-                                            <a href="product-default.html">
-                                                <img src="{% static "assets/images/demos/demo3/products/2-1-1.jpg" %}" alt="Product"
-                                                    width="330" height="338" />
-                                            </a>
-                                            <div class="product-action-vertical">
-                                                <a href="#" class="btn-product-icon btn-wishlist w-icon-heart"></a>
-                                                <p class="decreasingPrice">-90%</p>
-                                            </div>
-                                            <div class="product-action">
-                                                <a href="#" class="btn-product btn-quickview" title="Ətraflı bax">
-                                                    <i class="fa-regular fa-eye" style="color: #ffffff; font-size: 1.4em;"></i></a>
-                                            </div>
-                                        </figure>
-                                        <div class="product-details">
-                                            <h4 class="product-name"><a href="product-default.html">Leather Stripe Watch</a>
-                                            </h4>
-                                            <div class="product-pa-wrapper">
-                                                <div class="product-price">
-                                                    <ins class="new-price">125.00<span> ₼</span></ins>
-                                                    <del class="old-price">253.50<span> ₼</span></del>
-                                                </div>
-                                                <div class="product-action">
-                                                    <a href="#" 
-                                                        class="btn-cart btn-product btn btn-icon-right btn-link btn-underline"><i class="fa-solid fa-bag-shopping" style="color: #fe7c00; margin-right: 5px;"></i> Səbətə əlavə et</a>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>  
-                                <div class="swiper-slide product-wrap">
-                                    <div class="product product-simple text-center">
-                                        <figure class="product-media">
-                                            <a href="product-default.html">
-                                                <img src="{% static "assets/images/demos/demo3/products/2-1-1.jpg" %}" alt="Product"
-                                                    width="330" height="338" />
-                                            </a>
-                                            <div class="product-action-vertical">
-                                                <a href="#" class="btn-product-icon btn-wishlist w-icon-heart"></a>
-                                                <p class="decreasingPrice">-90%</p>
-                                            </div>
-                                            <div class="product-action">
-                                                <a href="#" class="btn-product btn-quickview" title="Ətraflı bax">
-                                                    <i class="fa-regular fa-eye" style="color: #ffffff; font-size: 1.4em;"></i></a>
-                                            </div>
-                                        </figure>
-                                        <div class="product-details">
-                                            <h4 class="product-name"><a href="product-default.html">Leather Stripe Watch</a>
-                                            </h4>
-                                            <div class="product-pa-wrapper">
-                                                <div class="product-price">
-                                                    <ins class="new-price">125.00<span> ₼</span></ins>
-                                                    <del class="old-price">253.50<span> ₼</span></del>
-                                                </div>
-                                                <div class="product-action">
-                                                    <a href="#" 
-                                                        class="btn-cart btn-product btn btn-icon-right btn-link btn-underline"><i class="fa-solid fa-bag-shopping" style="color: #fe7c00; margin-right: 5px;"></i> Səbətə əlavə et</a>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>  
-                                <div class="swiper-slide product-wrap">
-                                    <div class="product product-simple text-center">
-                                        <figure class="product-media">
-                                            <a href="product-default.html">
-                                                <img src="{% static "assets/images/demos/demo3/products/2-1-1.jpg" %}" alt="Product"
-                                                    width="330" height="338" />
-                                            </a>
-                                            <div class="product-action-vertical">
-                                                <a href="#" class="btn-product-icon btn-wishlist w-icon-heart"></a>
-                                                <p class="decreasingPrice">-90%</p>
-                                            </div>
-                                            <div class="product-action">
-                                                <a href="#" class="btn-product btn-quickview" title="Ətraflı bax">
-                                                    <i class="fa-regular fa-eye" style="color: #ffffff; font-size: 1.4em;"></i></a>
-                                            </div>
-                                        </figure>
-                                        <div class="product-details">
-                                            <h4 class="product-name"><a href="product-default.html">Leather Stripe Watch</a>
-                                            </h4>
-                                            <div class="product-pa-wrapper">
-                                                <div class="product-price">
-                                                    <ins class="new-price">125.00<span> ₼</span></ins>
-                                                    <del class="old-price">253.50<span> ₼</span></del>
-                                                </div>
-                                                <div class="product-action">
-                                                    <a href="#" 
-                                                        class="btn-cart btn-product btn btn-icon-right btn-link btn-underline"><i class="fa-solid fa-bag-shopping" style="color: #fe7c00; margin-right: 5px;"></i> Səbətə əlavə et</a>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>  
-                                <div class="swiper-slide product-wrap">
-                                    <div class="product product-simple text-center">
-                                        <figure class="product-media">
-                                            <a href="product-default.html">
-                                                <img src="{% static "assets/images/demos/demo3/products/2-1-1.jpg" %}" alt="Product"
-                                                    width="330" height="338" />
-                                            </a>
-                                            <div class="product-action-vertical">
-                                                <a href="#" class="btn-product-icon btn-wishlist w-icon-heart"></a>
-                                                <p class="decreasingPrice">-90%</p>
-                                            </div>
-                                            <div class="product-action">
-                                                <a href="#" class="btn-product btn-quickview" title="Ətraflı bax">
-                                                    <i class="fa-regular fa-eye" style="color: #ffffff; font-size: 1.4em;"></i></a>
-                                            </div>
-                                        </figure>
-                                        <div class="product-details">
-                                            <h4 class="product-name"><a href="product-default.html">Leather Stripe Watch</a>
-                                            </h4>
-                                            <div class="product-pa-wrapper">
-                                                <div class="product-price">
-                                                    <ins class="new-price">125.00<span> ₼</span></ins>
-                                                    <del class="old-price">253.50<span> ₼</span></del>
-                                                </div>
-                                                <div class="product-action">
-                                                    <a href="#" 
-                                                        class="btn-cart btn-product btn btn-icon-right btn-link btn-underline"><i class="fa-solid fa-bag-shopping" style="color: #fe7c00; margin-right: 5px;"></i> Səbətə əlavə et</a>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>  
-                                <div class="swiper-slide product-wrap">
-                                    <div class="product product-simple text-center">
-                                        <figure class="product-media">
-                                            <a href="product-default.html">
-                                                <img src="{% static "assets/images/demos/demo3/products/2-1-1.jpg" %}" alt="Product"
-                                                    width="330" height="338" />
-                                            </a>
-                                            <div class="product-action-vertical">
-                                                <a href="#" class="btn-product-icon btn-wishlist w-icon-heart"></a>
-                                                <p class="decreasingPrice">-90%</p>
-                                            </div>
-                                            <div class="product-action">
-                                                <a href="#" class="btn-product btn-quickview" title="Ətraflı bax">
-                                                    <i class="fa-regular fa-eye" style="color: #ffffff; font-size: 1.4em;"></i></a>
-                                            </div>
-                                        </figure>
-                                        <div class="product-details">
-                                            <h4 class="product-name"><a href="product-default.html">Leather Stripe Watch</a>
-                                            </h4>
-                                            <div class="product-pa-wrapper">
-                                                <div class="product-price">
-                                                    <ins class="new-price">125.00<span> ₼</span></ins>
-                                                    <del class="old-price">253.50<span> ₼</span></del>
-                                                </div>
-                                                <div class="product-action">
-                                                    <a href="#" 
-                                                        class="btn-cart btn-product btn btn-icon-right btn-link btn-underline"><i class="fa-solid fa-bag-shopping" style="color: #fe7c00; margin-right: 5px;"></i> Səbətə əlavə et</a>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>  
-                                <div class="swiper-slide product-wrap">
-                                    <div class="product product-simple text-center">
-                                        <figure class="product-media">
-                                            <a href="product-default.html">
-                                                <img src="{% static "assets/images/demos/demo3/products/2-1-1.jpg" %}" alt="Product"
-                                                    width="330" height="338" />
-                                            </a>
-                                            <div class="product-action-vertical">
-                                                <a href="#" class="btn-product-icon btn-wishlist w-icon-heart"></a>
-                                                <p class="decreasingPrice">-90%</p>
-                                            </div>
-                                            <div class="product-action">
-                                                <a href="#" class="btn-product btn-quickview" title="Ətraflı bax">
-                                                    <i class="fa-regular fa-eye" style="color: #ffffff; font-size: 1.4em;"></i></a>
-                                            </div>
-                                        </figure>
-                                        <div class="product-details">
-                                            <h4 class="product-name"><a href="product-default.html">Leather Stripe Watch</a>
-                                            </h4>
-                                            <div class="product-pa-wrapper">
-                                                <div class="product-price">
-                                                    <ins class="new-price">125.00<span> ₼</span></ins>
-                                                    <del class="old-price">253.50<span> ₼</span></del>
-                                                </div>
-                                                <div class="product-action">
-                                                    <a href="#" 
-                                                        class="btn-cart btn-product btn btn-icon-right btn-link btn-underline"><i class="fa-solid fa-bag-shopping" style="color: #fe7c00; margin-right: 5px;"></i> Səbətə əlavə et</a>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>  
-                            </div>
-
-                            <div class="toolbox toolbox-pagination justify-content-between">
-
-                                <ul class="pagination">
-                                    <li class="prev disabled">
-                                        <a href="#" aria-label="Previous" tabindex="-1" aria-disabled="true">
-                                            <i class="w-icon-long-arrow-left"></i>Əvvəlki
-                                        </a>
-                                    </li>
-                                    <li class="page-item active">
-                                        <a class="page-link" href="#">1</a>
-                                    </li>
-                                    <li class="page-item">
-                                        <a class="page-link" href="#">2</a>
-                                    </li>
-                                    <li class="next">
-                                        <a href="#" aria-label="Next">
-                                            Sonrakı<i class="w-icon-long-arrow-right"></i>
-                                        </a>
-                                    </li>
-                                </ul>
-
-                            </div>
-
-                        </div>
                     </div>
                 </div>
             </div>
@@ -576,9 +460,8 @@ integrity="sha512-z3gLpd7yknf1YoNbCzqRKc4qyor8gaKU1qmn+CShxbuBusANI9QpRohGBreCFk
         <!-- ========== Footer =========== -->
         {% include "core/includes/_footer.html" %}
         <!-- ========== END Footer =========== -->
-        
-    </div>
 
+    </div>
     <a id="scroll-top" class="scroll-top" href="#top" title="Top" role="button"> <i class="w-icon-angle-up"></i> <svg version="1.1" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 70 70"> <circle id="progress-indicator" fill="transparent" stroke="#000000" stroke-miterlimit="10" cx="35" cy="35" r="34" style="stroke-dasharray: 16.4198, 400;"></circle> </svg> </a>
     <div class="mobile-menu-wrapper">
         <div class="mobile-menu-overlay"></div>
@@ -1037,6 +920,35 @@ integrity="sha512-z3gLpd7yknf1YoNbCzqRKc4qyor8gaKU1qmn+CShxbuBusANI9QpRohGBreCFk
             </div>
         </div>
     </div>
+    <div class="pswp" tabindex="-1" role="dialog" aria-hidden="true">
+        <div class="pswp__bg"></div>
+        <div class="pswp__scroll-wrap">
+            <div class="pswp__container">
+                <div class="pswp__item"></div>
+                <div class="pswp__item"></div>
+                <div class="pswp__item"></div>
+            </div>
+            <div class="pswp__ui pswp__ui--hidden">
+
+                <div class="pswp__top-bar">
+                    <div class="pswp__counter"></div>
+                    <button class="pswp__button pswp__button--close" aria-label="Close (Esc)"></button>
+                    <button class="pswp__button pswp__button--zoom" aria-label="Zoom in/out"></button>
+                    <div class="pswp__preloader">
+                        <div class="loading-spin"></div>
+                    </div>
+                </div>
+                <div class="pswp__share-modal pswp__share-modal--hidden pswp__single-tap">
+                    <div class="pswp__share-tooltip"></div>
+                </div>
+                <button class="pswp__button--arrow--left" aria-label="Previous (arrow left)"></button>
+                <button class="pswp__button--arrow--right" aria-label="Next (arrow right)"></button>
+                <div class="pswp__caption">
+                    <div class="pswp__caption__center"></div>
+                </div>
+            </div>
+        </div>
+    </div>
     <div class="product product-single product-popup">
         <div class="row gutter-lg">
             <div class="col-md-6 mb-4 mb-md-0">
@@ -1046,7 +958,7 @@ integrity="sha512-z3gLpd7yknf1YoNbCzqRKc4qyor8gaKU1qmn+CShxbuBusANI9QpRohGBreCFk
                             <div class="swiper-slide">
                                 <figure class="product-image">
                                     <img src="{% static "assets/images/products/popup/1-440x494.jpg" %}"
-                                        data-zoom-image="{% static "assets/images/products/popup/1-800x900.jpg" %}"
+                                        data-zoom-image="{% static "assets/images/products/popup/1-440x494.jpg" %}"
                                         alt="Water Boil Black Utensil" width="800" height="900">
                                 </figure>
                             </div>
@@ -1207,13 +1119,14 @@ integrity="sha512-z3gLpd7yknf1YoNbCzqRKc4qyor8gaKU1qmn+CShxbuBusANI9QpRohGBreCFk
     <script data-cfasync="false" src="../../cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script><script src="{% static "assets/vendor/jquery/jquery.min.js" %}"></script>
     <script src="{% static "assets/vendor/sticky/sticky.js" %}"></script>
     <script src="{% static "assets/vendor/jquery.plugin/jquery.plugin.min.js" %}"></script>
-    <script src="{% static "assets/vendor/swiper/swiper-bundle.min.js" %}"></script>
-    <script src="{% static "assets/vendor/nouislider/nouislider.min.js" %}"></script>
-    <script src="{% static "assets/vendor/jquery.countdown/jquery.countdown.min.js" %}"></script>
     <script src="{% static "assets/vendor/imagesloaded/imagesloaded.pkgd.min.js" %}"></script>
-    <script src="{% static "assets/vendor/zoom/jquery.zoom.js" %}"></script>
     <script src="{% static "assets/vendor/magnific-popup/jquery.magnific-popup.min.js" %}"></script>
+    <script src="{% static "assets/vendor/swiper/swiper-bundle.min.js" %}"></script>
+    <script src="{% static "assets/vendor/zoom/jquery.zoom.js" %}"></script>
+    <script src="{% static "assets/vendor/photoswipe/photoswipe.js" %}"></script>
+    <script src="{% static "assets/vendor/photoswipe/photoswipe-ui-default.js" %}"></script>
     <script src="{% static "assets/js/main.min.js" %}"></script>
-    <script>(function(){var js = "window['__CF$cv$params']={r:'8298e7e08848f19a',t:'MTcwMDU2OTQyNi4yMDIwMDA='};_cpo=document.createElement('script');_cpo.nonce='',_cpo.src='../../cdn-cgi/challenge-platform/h/g/scripts/jsd/9914b343/main.js',document.getElementsByTagName('head')[0].appendChild(_cpo);";var _0xh = document.createElement('iframe');_0xh.height = 1;_0xh.width = 1;_0xh.style.position = 'absolute';_0xh.style.top = 0;_0xh.style.left = 0;_0xh.style.border = 'none';_0xh.style.visibility = 'hidden';document.body.appendChild(_0xh);function handler() {var _0xi = _0xh.contentDocument || _0xh.contentWindow.document;if (_0xi) {var _0xj = _0xi.createElement('script');_0xj.innerHTML = js;_0xi.getElementsByTagName('head')[0].appendChild(_0xj);}}if (document.readyState !== 'loading') {handler();} else if (window.addEventListener) {document.addEventListener('DOMContentLoaded', handler);} else {var prev = document.onreadystatechange || function () {};document.onreadystatechange = function (e) {prev(e);if (document.readyState !== 'loading') {document.onreadystatechange = prev;handler();}};}})();</script>
+    <script>(function(){var js = "window['__CF$cv$params']={r:'8298e7d34f9abb74',t:'MTcwMDU2OTQyMy45OTYwMDA='};_cpo=document.createElement('script');_cpo.nonce='',_cpo.src='../../cdn-cgi/challenge-platform/h/g/scripts/jsd/9914b343/main.js',document.getElementsByTagName('head')[0].appendChild(_cpo);";var _0xh = document.createElement('iframe');_0xh.height = 1;_0xh.width = 1;_0xh.style.position = 'absolute';_0xh.style.top = 0;_0xh.style.left = 0;_0xh.style.border = 'none';_0xh.style.visibility = 'hidden';document.body.appendChild(_0xh);function handler() {var _0xi = _0xh.contentDocument || _0xh.contentWindow.document;if (_0xi) {var _0xj = _0xi.createElement('script');_0xj.innerHTML = js;_0xi.getElementsByTagName('head')[0].appendChild(_0xj);}}if (document.readyState !== 'loading') {handler();} else if (window.addEventListener) {document.addEventListener('DOMContentLoaded', handler);} else {var prev = document.onreadystatechange || function () {};document.onreadystatechange = function (e) {prev(e);if (document.readyState !== 'loading') {document.onreadystatechange = prev;handler();}};}})();</script>
 </body>
 {% endblock body %}
+

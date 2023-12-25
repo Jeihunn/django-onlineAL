@@ -28,7 +28,7 @@ def blog_list_view(request):
 
     # Pagination
     page = request.GET.get('page', 1)
-    paginator = Paginator(blog_posts, 1)
+    paginator = Paginator(blog_posts, 10)
 
     try:
         blog_posts = paginator.page(page)
